@@ -295,20 +295,20 @@ function App() {
         <div>
           <Nav>
             <NavMenu>
-              <h1>Т 4.1 - отличное</h1>
-              <NavLink to="/tfourE" activeStyle>
+              <h1>Т 4.1 - хорошее</h1>
+              <NavLink to="/fourOneE" activeStyle>
                 1
               </NavLink>
-              <NavLink to="/tfour2E" activeStyle>
+              <NavLink to="/fourOne2E" activeStyle>
                 2
               </NavLink>
-              <NavLink to="/tfour3E" activeStyle>
+              <NavLink to="/fourOne3E" activeStyle>
                 3
               </NavLink>
-              <NavLink to="/tfour4E" activeStyle>
+              <NavLink to="/fourOne4E" activeStyle>
                 4
               </NavLink>
-              <NavLink to="/tfour5E" activeStyle>
+              <NavLink to="/fourOne5E" activeStyle>
                 5
               </NavLink>
               <h1>Сервер: EAST</h1>
