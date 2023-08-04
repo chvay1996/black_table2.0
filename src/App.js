@@ -148,7 +148,6 @@ import EAST from "./pages/east";
 
 function App() {
   const keyPlayer = [
-    "WHCNBX7zL3",
     "9wxxx19QEP",
     "4ynMzJ3xMy",
     "ejp2zdE9sP",
