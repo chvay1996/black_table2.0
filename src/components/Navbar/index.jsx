@@ -53,6 +53,19 @@ const Navbar = () => {
               EAST
             </NavLink>
           </div>
+          {/* <h3>WEST</h3>
+          <div class="toggle-button-cover">
+            <div class="button-cover">
+              <div class="button b2" id="button-11">
+                <input type="checkbox" class="checkbox" />
+                <div class="knobs">
+                  <span></span>
+                </div>
+                <div class=""></div>
+              </div>
+            </div>
+          </div>
+          <h3>EAST</h3> */}
         </NavMenu>
       </Nav>
     </>
