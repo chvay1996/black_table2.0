@@ -252,7 +252,7 @@ function App() {
 
   return (
     <>
-      <div style={{ position: "sticky", top: "80px" }}>
+      <div style={{ position: "sticky", top: "5px" }}>
         <>
           <Nav>
             <NavMenu>
@@ -279,32 +279,26 @@ function App() {
                   <NavLink to="/eightOneE">T 8.1</NavLink>
                 </>
               </div>
-            </NavMenu>
-          </Nav>
-        </>
-        <div>
-          <Nav>
-            <NavMenu>
               <h1>Т 7.1 - хорошее</h1>
-              <NavLink to="/tsix" activeStyle>
+              <NavLink to="/sevenE" activeStyle>
                 1
               </NavLink>
-              <NavLink to="/tsix2" activeStyle>
+              <NavLink to="/seven2E" activeStyle>
                 2
               </NavLink>
-              <NavLink to="/tsix3" activeStyle>
+              <NavLink to="/seven3E" activeStyle>
                 3
               </NavLink>
-              <NavLink to="/tsix4" activeStyle>
+              <NavLink to="/seven4E" activeStyle>
                 4
               </NavLink>
-              <NavLink to="/tsix5" activeStyle>
+              <NavLink to="/seven5E" activeStyle>
                 5
               </NavLink>
               <h1>Сервер: EAST</h1>
             </NavMenu>
           </Nav>
-        </div>
+        </>
       </div>
       <table
         style={{
@@ -467,7 +461,7 @@ function App() {
             let url = `https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/${items.item_id}`;
             return (
               <tr key={key}>
-                <img style={{ width: "40px" }} src={url} />
+                <img style={{ width: "25px" }} src={url} />
                 <th>{Enum[items.item_id]}</th>
                 <th>{items.BlackMarket.sell}</th>
                 <th>{Math.round((items.BlackMarket.sell / 100) * 89.5)}</th>

@@ -257,7 +257,7 @@ function App() {
     } else profitColorProc = "#e98282";
     return (
       <h>
-        <font style={{ color: profitColor }}>{profit}</font> |{" "}
+        <font style={{ color: profitColor }}>{profit}</font> |
         <font style={{ color: profitColorProc }}>{profitProc}%</font>
       </h>
     );
@@ -267,7 +267,7 @@ function App() {
 
   return (
     <>
-      <div style={{ position: "sticky", top: "80px" }}>
+      <div style={{ position: "sticky", top: "5px" }}>
         <>
           <Nav>
             <NavMenu>
@@ -294,33 +294,27 @@ function App() {
                   <NavLink to="/eightOneE">T 8.1</NavLink>
                 </>
               </div>
-            </NavMenu>
-          </Nav>
-        </>
-        <div>
-          <Nav>
-            <NavMenu>
               <h1>Т 5.1 - отличное</h1>
-              <NavLink to="/fiveOne" activeStyle>
+              <NavLink to="/fiveOnee" activeStyle>
                 1
               </NavLink>
-              <NavLink to="/fiveOne2" activeStyle>
+              <NavLink to="/fiveOne2e" activeStyle>
                 2
               </NavLink>
-              <NavLink to="/fiveOne3" activeStyle>
+              <NavLink to="/fiveOne3e" activeStyle>
                 3
               </NavLink>
-              <NavLink to="/fiveOne4" activeStyle>
+              <NavLink to="/fiveOne4e" activeStyle>
                 4
               </NavLink>
-              <NavLink to="/fiveOne5" activeStyle>
+              <NavLink to="/fiveOne5e" activeStyle>
                 5
-              </NavLink>{" "}
+              </NavLink>
               <h1>Сервер: EAST</h1>
             </NavMenu>
           </Nav>
-        </div>
-      </div>{" "}
+        </>
+      </div>
       <table
         style={{
           margin: "auto",
@@ -482,7 +476,7 @@ function App() {
             let url = `https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/${items.item_id}`;
             return (
               <tr key={key}>
-                <img style={{ width: "40px" }} src={url} />
+                <img style={{ width: "25px" }} src={url} />
                 <th>{Enum[items.item_id]}</th>
                 <th>{items?.BlackMarket?.sell}</th>
                 <th>{Math.round((items?.BlackMarket?.sell / 100) * 89.5)}</th>
