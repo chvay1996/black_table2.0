@@ -1,7 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import Home from "./pages";
 import WestCraft from "./pages/crafting/west/index.jsx";
 import EastCraft from "./pages/crafting/east/index.jsx";
@@ -197,8 +198,22 @@ function App() {
     "Su3t5BQ4gM",
     "ZIANpc4Gnr",
   ];
-  const keys = prompt("Введите ключ!").trim();
-  if (keyPlayer.includes(keys)) {
+
+  const [cookies, setCookie] = useCookies(["userKey"]);
+  const isValidUserKey = keyPlayer.includes(cookies.userKey);
+
+  useEffect(() => {
+    if (!cookies.userKey) {
+      const key = prompt("Введите ключ!").trim();
+      if (keyPlayer.includes(key)) {
+        setCookie("userKey", key, { path: "/" });
+      } else {
+        alert("Введите ключ или обратитесь к администрации!");
+      }
+    }
+  }, []);
+
+  if (isValidUserKey) {
     return (
       <>
         <Router>
@@ -355,7 +370,7 @@ function App() {
         </Fragment>
       </>
     );
-  } else alert("Обратитесь к администрации!");
+  }
 
   return (
     <>

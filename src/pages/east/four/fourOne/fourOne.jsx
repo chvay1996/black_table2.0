@@ -292,7 +292,7 @@ function App() {
                   <NavLink to="/eightOneE">T 8.1</NavLink>
                 </>
               </div>
-              <h1>Т 4.1 - хорошее</h1>
+              <h1>Т 4.1 - обычное</h1>
               <NavLink to="/fourOneE" activeStyle>
                 1
               </NavLink>

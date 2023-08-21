@@ -1,7 +1,22 @@
 import React, { useState } from "react";
 import { Nav, NavLink, NavMenu } from "./NavbarElements";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+    if (!isOpen) {
+      console.log("false");
+      navigate("/west");
+    } else {
+      console.log("true");
+      navigate("/east");
+    }
+  };
+
   return (
     <>
       <Nav>
@@ -29,7 +44,7 @@ const Navbar = () => {
               marginLeft: "500px",
             }}
           >
-            <NavLink
+            {/* <NavLink
               style={{
                 fontSize: "30px",
                 background: "blue",
@@ -51,21 +66,28 @@ const Navbar = () => {
               to="/east"
             >
               EAST
-            </NavLink>
+            </NavLink> */}
           </div>
-          {/* <h3>WEST</h3>
-          <div class="toggle-button-cover">
-            <div class="button-cover">
-              <div class="button b2" id="button-11">
-                <input type="checkbox" class="checkbox" />
-                <div class="knobs">
+          <h3 style={{ color: "yellow" }}>WEST</h3>
+          <div className="toggle-button-cover">
+            <div className="button-cover">
+              <div
+                className={`button b2 ${isOpen ? "active" : ""}`}
+                id="button-11"
+              >
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  onClick={handleClick}
+                />
+                <div className="knobs">
                   <span></span>
                 </div>
-                <div class=""></div>
+                <div></div>
               </div>
             </div>
           </div>
-          <h3>EAST</h3> */}
+          <h3 style={{ color: "yellow" }}>EAST</h3>
         </NavMenu>
       </Nav>
     </>
