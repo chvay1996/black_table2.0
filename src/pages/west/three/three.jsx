@@ -57,10 +57,12 @@ function checkTimeBD(Other) {
 
 function App() {
   const [item, setItem] = useState([]);
+  const [qualities, setQualities] = useState(1);
+  const [qualitiesName, setQualitiesName] = useState("Обычное");
 
   function addFitch() {
     fetch(
-      `https://west.albion-online-data.com/api/v2/stats/prices/T3_HEAD_CLOTH_SET1,T3_ARMOR_CLOTH_SET1,T3_SHOES_CLOTH_SET1,T3_OFF_BOOK,T3_HEAD_LEATHER_SET1,T3_ARMOR_LEATHER_SET1,T3_SHOES_LEATHER_SET1,T3_2H_BOW,T3_MAIN_SPEAR,T3_MAIN_DAGGER,T3_OFF_TORCH,T3_HEAD_PLATE_SET1,T3_ARMOR_PLATE_SET1,T3_SHOES_PLATE_SET1,T3_MAIN_SWORD,T3_MAIN_AXE,T3_MAIN_MACE,T3_2H_TOOL_SIEGEHAMMER,T3_2H_CROSSBOW,T3_OFF_SHIELD,T3_BAG,T3_CAPE.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=1`
+      `https://west.albion-online-data.com/api/v2/stats/prices/T3_HEAD_CLOTH_SET1,T3_ARMOR_CLOTH_SET1,T3_SHOES_CLOTH_SET1,T3_OFF_BOOK,T3_HEAD_LEATHER_SET1,T3_ARMOR_LEATHER_SET1,T3_SHOES_LEATHER_SET1,T3_2H_BOW,T3_MAIN_SPEAR,T3_MAIN_DAGGER,T3_OFF_TORCH,T3_HEAD_PLATE_SET1,T3_ARMOR_PLATE_SET1,T3_SHOES_PLATE_SET1,T3_MAIN_SWORD,T3_MAIN_AXE,T3_MAIN_MACE,T3_2H_TOOL_SIEGEHAMMER,T3_2H_CROSSBOW,T3_OFF_SHIELD,T3_BAG,T3_CAPE.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=${qualities}`
     )
       .then((res) => res.json())
       .then((json) => analysisJSON(json));
@@ -68,7 +70,7 @@ function App() {
 
   useEffect(() => {
     addFitch();
-  }, []);
+  }, [qualities, qualitiesName]);
 
   function analysisJSON(data) {
     let array = [];
@@ -228,22 +230,48 @@ function App() {
                 <NavLink to="/eightOne">T 8.1</NavLink>
               </>
             </div>
-            <h1>Т 3 - обычное</h1>
-            <NavLink to="/three" activeStyle>
+            <h1>Т 3 - {qualitiesName}</h1>
+            <NavLink
+              onClick={() => {
+                setQualities(1);
+                setQualitiesName("обычное");
+              }}
+            >
               1
             </NavLink>
-            <NavLink to="/three2" activeStyle>
+            <NavLink
+              onClick={() => {
+                setQualities(2);
+                setQualitiesName("хорошее");
+              }}
+            >
               2
             </NavLink>
-            <NavLink to="/three3" activeStyle>
+            <NavLink
+              onClick={() => {
+                setQualities(3);
+                setQualitiesName("выдающиеся");
+              }}
+            >
               3
             </NavLink>
-            <NavLink to="/three4" activeStyle>
+            <NavLink
+              onClick={() => {
+                setQualities(4);
+                setQualitiesName("отличное");
+              }}
+            >
               4
             </NavLink>
-            <NavLink to="/three5" activeStyle>
+            <NavLink
+              onClick={() => {
+                setQualities(5);
+                setQualitiesName("шедевр");
+              }}
+            >
               5
             </NavLink>
+
             <h1>Сервер: WEST</h1>
           </NavMenu>
         </Nav>

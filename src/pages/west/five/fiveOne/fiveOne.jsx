@@ -31,7 +31,7 @@ let Enum = {
   T5_2H_HOLYSTAFF: "Большой священный посох (эксперт)",
   T5_2H_DIVINESTAFF: "Божественный посох (эксперт)",
   T5_OFF_BOOK: "Книга заклинаний (эксперт)",
-  T5_HEAD_LEATHER_SET1: "Капюшон наемника (знатока)",
+  T5_HEAD_LEATHER_SET1: "Капюшон наемника (эксперта)",
   T5_HEAD_LEATHER_SET2: "Капюшон охотника (эксперт)",
   T5_HEAD_LEATHER_SET3: "Капюшон убийцы (эксперт)",
   T5_ARMOR_LEATHER_SET1: "Куртка наемника (эксперт)",
@@ -83,13 +83,23 @@ let Enum = {
   T5_OFF_SHIELD: "Щит (эксперт)",
   T5_BAG: "Сумка (эксперт)",
   T5_CAPE: "Плащ (эксперт)",
+};
+let artef = {
   T5_HEAD_LEATHER_MORGANA: "Капюшон лазутчика",
   T5_ARMOR_LEATHER_MORGANA: "Куртка лазутчика",
   T5_SHOES_LEATHER_MORGANA: "Батинка лазутчика",
+  T5_HEAD_CLOTH_KEEPER: "Колпак друида",
+  T5_ARMOR_CLOTH_KEEPER: "Мантия друида",
+  T5_SHOES_CLOTH_KEEPER: "Сандалии друида",
+  T5_HEAD_PLATE_UNDEAD: "Могильный шлем",
+  T5_ARMOR_PLATE_UNDEAD: "Могильная броня",
+  T5_SHOES_PLATE_UNDEAD: "Могильные сапоги",
 };
-
 Enum = Object.fromEntries(
   Object.keys(Enum).map((key) => [key + "@1", Enum[key]])
+);
+artef = Object.fromEntries(
+  Object.keys(artef).map((key) => [key + "@1", artef[key]])
 );
 
 function checkTime(firstDate, secondDate) {
@@ -104,36 +114,42 @@ function checkTime(firstDate, secondDate) {
 }
 
 function checkTimeBD(Other) {
-  if (Other) {
-    let timeTamp = Other.split("T")[1].split(":");
-    let globalTamp = new Date().toUTCString().split(" ")[4].split(":");
+  let timeTamp = Other.split("T")[1].split(":");
+  let globalTamp = new Date().toUTCString().split(" ")[4].split(":");
 
-    if (Other !== 0) {
-      let checkTimes = checkTime(
-        `${timeTamp[0]}:${timeTamp[1]}`,
-        `${globalTamp[0]}:${globalTamp[1]}`
-      );
-      if (!checkTimes.match("-")) return checkTimes;
-    }
+  if (Other !== 0) {
+    let checkTimes = checkTime(
+      `${timeTamp[0]}:${timeTamp[1]}`,
+      `${globalTamp[0]}:${globalTamp[1]}`
+    );
+    if (!checkTimes.match("-")) return checkTimes;
   }
 }
 
 function App() {
   const [item, setItem] = useState([]);
+  const [qualities, setQualities] = useState(1);
+  const [qualitiesName, setQualitiesName] = useState("Обычное");
+  const [itemArtef, setItemArtef] = useState([]);
 
   function addFitch() {
     fetch(
-      `https://west.albion-online-data.com/api/v2/stats/prices/T5_SHOES_LEATHER_MORGANA@1,T5_ARMOR_LEATHER_MORGANA@1,T5_HEAD_LEATHER_MORGANA@1,T5_HEAD_CLOTH_SET1@1,T5_HEAD_CLOTH_SET2@1,T5_HEAD_CLOTH_SET3@1,T5_ARMOR_CLOTH_SET1@1,T5_ARMOR_CLOTH_SET2@1,T5_ARMOR_CLOTH_SET3@1,T5_SHOES_CLOTH_SET1@1,T5_SHOES_CLOTH_SET2@1,T5_SHOES_CLOTH_SET3@1,T5_MAIN_ARCANESTAFF@1,T5_2H_ARCANESTAFF@1,T5_2H_ENIGMATICSTAFF@1,T5_MAIN_CURSEDSTAFF@1,T5_2H_CURSEDSTAFF@1,T5_2H_DEMONICSTAFF@1,T5_MAIN_FIRESTAFF@1,T5_2H_FIRESTAFF@1,T5_2H_INFERNOSTAFF@1,T5_2H_FROSTSTAFF@1,T5_2H_FROSTSTAFF@1,T5_2H_GLACIALSTAFF@1,T5_MAIN_HOLYSTAFF@1,T5_2H_HOLYSTAFF@1,T5_2H_DIVINESTAFF@1,T5_OFF_BOOK@1,T5_HEAD_LEATHER_SET2@1,T5_HEAD_LEATHER_SET3@1,T5_ARMOR_LEATHER_SET1@1,T5_ARMOR_LEATHER_SET2@1,T5_ARMOR_LEATHER_SET3@1,T5_SHOES_LEATHER_SET1@1,T5_SHOES_LEATHER_SET2@1,T5_SHOES_LEATHER_SET3@1,T5_2H_BOW@1,T5_2H_WARBOW@1,T5_2H_LONGBOW@1,T5_MAIN_SPEAR@1,T5_2H_SPEAR@1,T5_2H_GLAIVE@1,T5_MAIN_NATURESTAFF@1,T5_2H_NATURESTAFF@1,T5_2H_WILDSTAFF@1,T5_MAIN_DAGGER@1,T5_2H_DAGGERPAIR@1,T5_2H_CLAWPAIR@1,T5_2H_QUARTERSTAFF@1,T5_2H_IRONCLADEDSTAFF@1,T5_2H_DOUBLEBLADEDSTAFF@1,T5_OFF_TORCH@1,T5_HEAD_PLATE_SET1@1,T5_HEAD_PLATE_SET2@1,T5_HEAD_PLATE_SET3@1,T5_ARMOR_PLATE_SET1@1,T5_ARMOR_PLATE_SET2@1,T5_ARMOR_PLATE_SET3@1,T5_SHOES_PLATE_SET1@1,T5_SHOES_PLATE_SET2@1,T5_SHOES_PLATE_SET3@1,T5_MAIN_SWORD@1,T5_2H_CLAYMORE@1,T5_2H_DUALSWORD@1,T5_MAIN_AXE@1,T5_2H_AXE@1,T5_2H_HALBERD@1,T5_2H_MACE@1,T5_MAIN_MACE@1,T5_2H_FLAIL@1,T5_2H_TOOL_SIEGEHAMMER@1,T5_2H_POLEHAMMER@1,T5_2H_HAMMER@1,T5_2H_CROSSBOW@1,T5_2H_CROSSBOWLARGE@1,T5_MAIN_1HCROSSBOW@1,T5_OFF_SHIELD@1,T5_BAG@1,T5_CAPE@1.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=${qualities}`
+      `https://WEST.albion-online-data.com/api/v2/stats/prices/T5_HEAD_CLOTH_SET1@1,T5_HEAD_CLOTH_SET2@1,T5_HEAD_CLOTH_SET3@1,T5_ARMOR_CLOTH_SET1@1,T5_ARMOR_CLOTH_SET2@1,T5_ARMOR_CLOTH_SET3@1,T5_SHOES_CLOTH_SET1@1,T5_SHOES_CLOTH_SET2@1,T5_SHOES_CLOTH_SET3@1,T5_MAIN_ARCANESTAFF@1,T5_2H_ARCANESTAFF@1,T5_2H_ENIGMATICSTAFF@1,T5_MAIN_CURSEDSTAFF@1,T5_2H_CURSEDSTAFF@1,T5_2H_DEMONICSTAFF@1,T5_MAIN_FIRESTAFF@1,T5_2H_FIRESTAFF@1,T5_2H_INFERNOSTAFF@1,T5_2H_FROSTSTAFF@1,T5_2H_FROSTSTAFF@1,T5_2H_GLACIALSTAFF@1,T5_MAIN_HOLYSTAFF@1,T5_2H_HOLYSTAFF@1,T5_2H_DIVINESTAFF@1,T5_OFF_BOOK@1,T5_HEAD_LEATHER_SET2@1,T5_HEAD_LEATHER_SET3@1,T5_ARMOR_LEATHER_SET1@1,T5_ARMOR_LEATHER_SET2@1,T5_ARMOR_LEATHER_SET3@1,T5_SHOES_LEATHER_SET1@1,T5_SHOES_LEATHER_SET2@1,T5_SHOES_LEATHER_SET3@1,T5_2H_BOW@1,T5_2H_WARBOW@1,T5_2H_LONGBOW@1,T5_MAIN_SPEAR@1,T5_2H_SPEAR@1,T5_2H_GLAIVE@1,T5_MAIN_NATURESTAFF@1,T5_2H_NATURESTAFF@1,T5_2H_WILDSTAFF@1,T5_MAIN_DAGGER@1,T5_2H_DAGGERPAIR@1,T5_2H_CLAWPAIR@1,T5_2H_QUARTERSTAFF@1,T5_2H_IRONCLADEDSTAFF@1,T5_2H_DOUBLEBLADEDSTAFF@1,T5_OFF_TORCH@1,T5_HEAD_PLATE_SET1@1,T5_HEAD_PLATE_SET2@1,T5_HEAD_PLATE_SET3@1,T5_ARMOR_PLATE_SET1@1,T5_ARMOR_PLATE_SET2@1,T5_ARMOR_PLATE_SET3@1,T5_SHOES_PLATE_SET1@1,T5_SHOES_PLATE_SET2@1,T5_SHOES_PLATE_SET3@1,T5_MAIN_SWORD@1,T5_2H_CLAYMORE@1,T5_2H_DUALSWORD@1,T5_MAIN_AXE@1,T5_2H_AXE@1,T5_2H_HALBERD@1,T5_2H_MACE@1,T5_MAIN_MACE@1,T5_2H_FLAIL@1,T5_2H_TOOL_SIEGEHAMMER@1,T5_2H_POLEHAMMER@1,T5_2H_HAMMER@1,T5_2H_CROSSBOW@1,T5_2H_CROSSBOWLARGE@1,T5_MAIN_1HCROSSBOW@1,T5_OFF_SHIELD@1,T5_BAG@1,T5_CAPE.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=${qualities}`
     )
       .then((res) => res.json())
-      .then((json) => analysisJSON(json));
+      .then((json) => analysisJSON(json, setItem));
+    fetch(
+      `https://WEST.albion-online-data.com/api/v2/stats/prices/T5_SHOES_PLATE_UNDEAD@1,T5_ARMOR_PLATE_UNDEAD@1,T5_HEAD_PLATE_UNDEAD@1,T5_SHOES_CLOTH_KEEPER@1,T5_ARMOR_CLOTH_KEEPER@1,T5_HEAD_CLOTH_KEEPER@1,T5_SHOES_LEATHER_MORGANA@1,T5_ARMOR_LEATHER_MORGANA@1,T5_HEAD_LEATHER_MORGANA.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=${qualities}`
+    )
+      .then((res) => res.json())
+      .then((json) => analysisJSON(json, setItemArtef));
   }
 
   useEffect(() => {
     addFitch();
-  }, []);
+  }, [qualities, qualitiesName]);
 
-  function analysisJSON(data) {
+  function analysisJSON(data, arrays) {
     let array = [];
     data.map((data) => {
       const objectReadyJSON = {};
@@ -238,7 +254,7 @@ function App() {
       array.push(objectReadyJSON);
     });
 
-    setItem(array);
+    arrays(array);
   }
 
   function profit(BM, Other) {
@@ -257,61 +273,87 @@ function App() {
     } else profitColorProc = "#e98282";
     return (
       <h>
-        <font style={{ color: profitColor }}>{profit}</font> |{" "}
+        <font style={{ color: profitColor }}>{profit}</font> |
         <font style={{ color: profitColorProc }}>{profitProc}%</font>
       </h>
     );
   }
 
-  const qualities = 1;
-
   return (
     <>
       <div style={{ position: "sticky", top: "5px" }}>
-        <Nav>
-          <NavMenu>
-            <div style={{ display: "contents" }}>
-              <NavLink to="/three">T 3</NavLink>
-              <>
-                <NavLink to="/tfour">T 4.0</NavLink>
-                <NavLink to="/fourOne">T 4.1</NavLink>
-              </>
-              <>
-                <NavLink to="/tfive">Т 5.0</NavLink>
-                <NavLink to="/fiveOne">Т 5.1</NavLink>
-              </>
-              <>
-                <NavLink to="/tsix">T 6.0</NavLink>
-                <NavLink to="/sixOne">T 6.1</NavLink>
-              </>
-              <>
-                <NavLink to="/seven">T 7.0</NavLink>
-                <NavLink to="/sevenOne">T 7.1</NavLink>
-              </>
-              <>
-                <NavLink to="/eight">T 8.0</NavLink>
-                <NavLink to="/eightOne">T 8.1</NavLink>
-              </>
-            </div>
-            <h1>Т 5.1 - обычное</h1>
-            <NavLink to="/fiveOne" activeStyle>
-              1
-            </NavLink>
-            <NavLink to="/fiveOne2" activeStyle>
-              2
-            </NavLink>
-            <NavLink to="/fiveOne3" activeStyle>
-              3
-            </NavLink>
-            <NavLink to="/fiveOne4" activeStyle>
-              4
-            </NavLink>
-            <NavLink to="/fiveOne5" activeStyle>
-              5
-            </NavLink>
-            <h1>Сервер: WEST</h1>
-          </NavMenu>
-        </Nav>
+        <>
+          <Nav>
+            <NavMenu>
+              <div style={{ display: "contents" }}>
+                <NavLink to="/threeE">T 3</NavLink>
+                <>
+                  <NavLink to="/tfourE">T 4.0</NavLink>
+                  <NavLink to="/fourOneE">T 4.1</NavLink>
+                </>
+                <>
+                  <NavLink to="/tfiveE">Т 5.0</NavLink>
+                  <NavLink to="/fiveOneE">Т 5.1</NavLink>
+                </>
+                <>
+                  <NavLink to="/tsixE">T 6.0</NavLink>
+                  <NavLink to="/sixOneE">T 6.1</NavLink>
+                </>
+                <>
+                  <NavLink to="/sevenE">T 7.0</NavLink>
+                  <NavLink to="/sevenOneE">T 7.1</NavLink>
+                </>
+                <>
+                  <NavLink to="/eightE">T 8.0</NavLink>
+                  <NavLink to="/eightOneE">T 8.1</NavLink>
+                </>
+              </div>
+              <h1>Т 5.1 - {qualitiesName}</h1>
+              <NavLink
+                onClick={() => {
+                  setQualities(1);
+                  setQualitiesName("обычное");
+                }}
+              >
+                1
+              </NavLink>
+              <NavLink
+                onClick={() => {
+                  setQualities(2);
+                  setQualitiesName("хорошее");
+                }}
+              >
+                2
+              </NavLink>
+              <NavLink
+                onClick={() => {
+                  setQualities(3);
+                  setQualitiesName("выдающиеся");
+                }}
+              >
+                3
+              </NavLink>
+              <NavLink
+                onClick={() => {
+                  setQualities(4);
+                  setQualitiesName("отличное");
+                }}
+              >
+                4
+              </NavLink>
+              <NavLink
+                onClick={() => {
+                  setQualities(5);
+                  setQualitiesName("шедевр");
+                }}
+              >
+                5
+              </NavLink>
+
+              <h1>Сервер: WEST</h1>
+            </NavMenu>
+          </Nav>
+        </>
       </div>
       <table
         style={{
@@ -476,77 +518,152 @@ function App() {
               <tr key={key}>
                 <img style={{ width: "25px" }} src={url} />
                 <th>{Enum[items.item_id]}</th>
-                <th>{items?.BlackMarket?.sell}</th>
-                <th>{Math.round((items?.BlackMarket?.sell / 100) * 89.5)}</th>
-                <th>{checkTimeBD(items?.BlackMarket?.sellDate)}</th>
+                <th>{items.BlackMarket.sell}</th>
+                <th>{Math.round((items.BlackMarket.sell / 100) * 89.5)}</th>
+                <th>{checkTimeBD(items.BlackMarket.sellDate)}</th>
                 <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
-                  {items?.Bridgewatch?.sell}
+                  {items.Bridgewatch.sell}
                 </th>
                 <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
-                  {items?.BlackMarket?.sell && items?.Bridgewatch?.sell
-                    ? profit(items?.BlackMarket?.sell, items?.Bridgewatch?.sell)
+                  {items.BlackMarket.sell && items.Bridgewatch.sell
+                    ? profit(items.BlackMarket.sell, items.Bridgewatch.sell)
                     : ""}
                 </th>
                 <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
-                  {checkTimeBD(items?.Martlock?.sellDate)}
+                  {checkTimeBD(items.Martlock.sellDate)}
                 </th>
                 <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
-                  {items?.Martlock?.sell}
+                  {items.Martlock.sell}
                 </th>
                 <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
-                  {items?.BlackMarket?.sell && items?.Martlock?.sell
-                    ? profit(items?.BlackMarket?.sell, items?.Martlock?.sell)
+                  {items.BlackMarket.sell && items.Martlock.sell
+                    ? profit(items.BlackMarket.sell, items.Martlock.sell)
                     : ""}
                 </th>
                 <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
-                  {checkTimeBD(items?.Thetford?.sellDate)}
+                  {checkTimeBD(items.Thetford.sellDate)}
                 </th>
                 <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
-                  {items?.Thetford?.sell}
+                  {items.Thetford.sell}
                 </th>
                 <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
-                  {items?.BlackMarket?.sell && items?.Thetford?.sell
-                    ? profit(items?.BlackMarket?.sell, items?.Thetford?.sell)
+                  {items.BlackMarket.sell && items.Thetford.sell
+                    ? profit(items.BlackMarket.sell, items.Thetford.sell)
                     : ""}
                 </th>
                 <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
-                  {checkTimeBD(items?.FortSterling?.sellDate)}
+                  {checkTimeBD(items.FortSterling.sellDate)}
                 </th>
                 <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
-                  {items?.FortSterling?.sell}
+                  {items.FortSterling.sell}
                 </th>
                 <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
-                  {items?.BlackMarket?.sell && items?.FortSterling?.sell
-                    ? profit(
-                        items?.BlackMarket?.sell,
-                        items?.FortSterling?.sell
-                      )
+                  {items.BlackMarket.sell && items.FortSterling.sell
+                    ? profit(items.BlackMarket.sell, items.FortSterling.sell)
                     : ""}
                 </th>
                 <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
-                  {checkTimeBD(items?.FortSterling?.sellDate)}
+                  {checkTimeBD(items.FortSterling.sellDate)}
                 </th>
                 <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
-                  {items?.Lymhurst?.sell}
+                  {items.Lymhurst.sell}
                 </th>
                 <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
-                  {items.BlackMarket.sell && items?.Lymhurst?.sell
-                    ? profit(items?.BlackMarket?.sell, items?.Lymhurst?.sell)
+                  {items.BlackMarket.sell && items.Lymhurst.sell
+                    ? profit(items.BlackMarket.sell, items.Lymhurst.sell)
                     : ""}
                 </th>
                 <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
-                  {checkTimeBD(items?.Lymhurst?.sellDate)}
+                  {checkTimeBD(items.Lymhurst.sellDate)}
                 </th>
                 <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
-                  {items?.Caerleon?.sell}
+                  {items.Caerleon.sell}
                 </th>
                 <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
-                  {items?.BlackMarket?.sell && items?.Caerleon?.sell
-                    ? profit(items?.BlackMarket?.sell, items?.Caerleon?.sell)
+                  {items.BlackMarket.sell && items.Caerleon.sell
+                    ? profit(items.BlackMarket.sell, items.Caerleon.sell)
                     : ""}
                 </th>
                 <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
-                  {checkTimeBD(items?.Caerleon?.sellDate)}
+                  {checkTimeBD(items.Caerleon.sellDate)}
+                </th>
+              </tr>
+            );
+          })}
+          {itemArtef.map((items, key) => {
+            let url = `https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/${items.item_id}`;
+            return (
+              <tr key={key}>
+                <img style={{ width: "25px" }} src={url} />
+                <th>{artef[items.item_id]}</th>
+                <th>{items.BlackMarket.sell}</th>
+                <th>{Math.round((items.BlackMarket.sell / 100) * 89.5)}</th>
+                <th>{checkTimeBD(items.BlackMarket.sellDate)}</th>
+                <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
+                  {items.Bridgewatch.sell}
+                </th>
+                <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
+                  {items.BlackMarket.sell && items.Bridgewatch.sell
+                    ? profit(items.BlackMarket.sell, items.Bridgewatch.sell)
+                    : ""}
+                </th>
+                <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
+                  {checkTimeBD(items.Martlock.sellDate)}
+                </th>
+                <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
+                  {items.Martlock.sell}
+                </th>
+                <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
+                  {items.BlackMarket.sell && items.Martlock.sell
+                    ? profit(items.BlackMarket.sell, items.Martlock.sell)
+                    : ""}
+                </th>
+                <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
+                  {checkTimeBD(items.Thetford.sellDate)}
+                </th>
+                <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
+                  {items.Thetford.sell}
+                </th>
+                <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
+                  {items.BlackMarket.sell && items.Thetford.sell
+                    ? profit(items.BlackMarket.sell, items.Thetford.sell)
+                    : ""}
+                </th>
+                <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
+                  {checkTimeBD(items.FortSterling.sellDate)}
+                </th>
+                <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
+                  {items.FortSterling.sell}
+                </th>
+                <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
+                  {items.BlackMarket.sell && items.FortSterling.sell
+                    ? profit(items.BlackMarket.sell, items.FortSterling.sell)
+                    : ""}
+                </th>
+                <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
+                  {checkTimeBD(items.FortSterling.sellDate)}
+                </th>
+                <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
+                  {items.Lymhurst.sell}
+                </th>
+                <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
+                  {items.BlackMarket.sell && items.Lymhurst.sell
+                    ? profit(items.BlackMarket.sell, items.Lymhurst.sell)
+                    : ""}
+                </th>
+                <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
+                  {checkTimeBD(items.Lymhurst.sellDate)}
+                </th>
+                <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
+                  {items.Caerleon.sell}
+                </th>
+                <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
+                  {items.BlackMarket.sell && items.Caerleon.sell
+                    ? profit(items.BlackMarket.sell, items.Caerleon.sell)
+                    : ""}
+                </th>
+                <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
+                  {checkTimeBD(items.Caerleon.sellDate)}
                 </th>
               </tr>
             );

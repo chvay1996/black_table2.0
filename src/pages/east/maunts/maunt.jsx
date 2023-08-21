@@ -93,40 +93,42 @@ function Maunt() {
   const [itemt4, setItemt4] = useState([]);
   const [itemt5, setItemt5] = useState([]);
   const [itemt6, setItemt6] = useState([]);
+  const [qualities, setQualities] = useState(1);
+  const [qualitiesName, setQualitiesName] = useState("Обычное");
 
   function addFitch() {
     fetch(
-      `https://EAST.albion-online-data.com/api/v2/stats/prices/T2_MOUNT_MULE.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=1`
+      `https://EAST.albion-online-data.com/api/v2/stats/prices/T2_MOUNT_MULE.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=${qualities}`
     )
       .then((res) => res.json())
-      .then((json) => analysisJSON(json));
+      .then((json) => analysisJSON(json, setItem));
     fetch(
-      `https://EAST.albion-online-data.com/api/v2/stats/prices/T3_MOUNT_HORSE,T3_MOUNT_OX,.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=1`
+      `https://EAST.albion-online-data.com/api/v2/stats/prices/T3_MOUNT_HORSE,T3_MOUNT_OX,.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=${qualities}`
     )
       .then((res) => res.json())
-      .then((json) => mauntt3(json));
+      .then((json) => analysisJSON(json, setItemt3));
     fetch(
-      `https://EAST.albion-online-data.com/api/v2/stats/prices/T4_MOUNT_HORSE,T4_MOUNT_OX,T4_MOUNT_GIANTSTAG.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=1`
+      `https://EAST.albion-online-data.com/api/v2/stats/prices/T4_MOUNT_HORSE,T4_MOUNT_OX,T4_MOUNT_GIANTSTAG.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=${qualities}`
     )
       .then((res) => res.json())
-      .then((json) => mauntt4(json));
+      .then((json) => analysisJSON(json, setItemt4));
     fetch(
-      `https://EAST.albion-online-data.com/api/v2/stats/prices/T5_MOUNT_GREYWOLF_FW_CAERLEON,T5_MOUNT_COUGAR_KEEPER,T5_MOUNT_DIREBOAR_FW_LYMHURST,T5_MOUNT_RAM_FW_MARTLOCK,T5_MOUNT_DIREBEAR_FW_FORTSTERLING,T5_MOUNT_MOABIRD_FW_BRIDGEWATCH,T5_MOUNT_ARMORED_HORSE,T5_MOUNT_SWAMPDRAGON_FW_THETFORD,T5_MOUNT_HORSE,T5_MOUNT_OX,UNIQUE_MOUNT_RHINO_SEASON_BRONZE,T5_MOUNT_ARMORED_HORSE_SKIN_01.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=1`
+      `https://EAST.albion-online-data.com/api/v2/stats/prices/T5_MOUNT_GREYWOLF_FW_CAERLEON,T5_MOUNT_COUGAR_KEEPER,T5_MOUNT_DIREBOAR_FW_LYMHURST,T5_MOUNT_RAM_FW_MARTLOCK,T5_MOUNT_DIREBEAR_FW_FORTSTERLING,T5_MOUNT_MOABIRD_FW_BRIDGEWATCH,T5_MOUNT_ARMORED_HORSE,T5_MOUNT_SWAMPDRAGON_FW_THETFORD,T5_MOUNT_HORSE,T5_MOUNT_OX,UNIQUE_MOUNT_RHINO_SEASON_BRONZE,T5_MOUNT_ARMORED_HORSE_SKIN_01.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=${qualities}`
     )
       .then((res) => res.json())
-      .then((json) => mauntt5(json));
+      .then((json) => analysisJSON(json, setItemt5));
     fetch(
-      `https://EAST.albion-online-data.com/api/v2/stats/prices/UNIQUE_MOUNT_TANKBEETLE_SILVER,UNIQUE_MOUNT_JUGGERNAUT_SILVER,UNIQUE_MOUNT_BASTION_SILVER,UNIQUE_MOUNT_BATTLESPIDER_SILVER,UNIQUE_MOUNT_ENT_SILVER,UNIQUE_MOUNT_BEHEMOTH_SILVER,UNIQUE_MOUNT_BEETLE_SILVER,UNIQUE_MOUNT_ARMORED_EAGLE_SILVER,UNIQUE_MOUNT_TOWER_CHARIOT_SILVER,UNIQUE_MOUNT_RHINO_SEASON_SILVER,UNIQUE_MOUNT_HERETIC_MULE_ADC,T6_MOUNT_GREYWOLF_FW_CAERLEON,UNIQUE_MOUNT_DIVINE_OWL_ADC,UNIQUE_MOUNT_MORGANA_RAVEN_ADC,T6_MOUNT_FROSTRAM_ADC,UNIQUE_MOUNT_MOABIRD_TELLAFRIEND,T6_MOUNT_SIEGE_BALLISTA,T6_MOUNT_DIREWOLF,T6_MOUNT_GIANTSTAG_MOOSE,T6_MOUNT_COUGAR_KEEPER,T6_MOUNT_DIREBOAR_FW_LYMHURST,T6_MOUNT_RAM_FW_MARTLOCK,T6_MOUNT_DIREBEAR_FW_FORTSTERLING,T6_MOUNT_MOABIRD_FW_BRIDGEWATCH,T6_MOUNT_ARMORED_HORSE,T6_MOUNT_SWAMPDRAGON_FW_THETFORD,T6_MOUNT_HORSE,T6_MOUNT_OX,T6_MOUNT_ARMORED_HORSE_SKIN_01.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=1`
+      `https://EAST.albion-online-data.com/api/v2/stats/prices/UNIQUE_MOUNT_TANKBEETLE_SILVER,UNIQUE_MOUNT_JUGGERNAUT_SILVER,UNIQUE_MOUNT_BASTION_SILVER,UNIQUE_MOUNT_BATTLESPIDER_SILVER,UNIQUE_MOUNT_ENT_SILVER,UNIQUE_MOUNT_BEHEMOTH_SILVER,UNIQUE_MOUNT_BEETLE_SILVER,UNIQUE_MOUNT_ARMORED_EAGLE_SILVER,UNIQUE_MOUNT_TOWER_CHARIOT_SILVER,UNIQUE_MOUNT_RHINO_SEASON_SILVER,UNIQUE_MOUNT_HERETIC_MULE_ADC,T6_MOUNT_GREYWOLF_FW_CAERLEON,UNIQUE_MOUNT_DIVINE_OWL_ADC,UNIQUE_MOUNT_MORGANA_RAVEN_ADC,T6_MOUNT_FROSTRAM_ADC,UNIQUE_MOUNT_MOABIRD_TELLAFRIEND,T6_MOUNT_SIEGE_BALLISTA,T6_MOUNT_DIREWOLF,T6_MOUNT_GIANTSTAG_MOOSE,T6_MOUNT_COUGAR_KEEPER,T6_MOUNT_DIREBOAR_FW_LYMHURST,T6_MOUNT_RAM_FW_MARTLOCK,T6_MOUNT_DIREBEAR_FW_FORTSTERLING,T6_MOUNT_MOABIRD_FW_BRIDGEWATCH,T6_MOUNT_ARMORED_HORSE,T6_MOUNT_SWAMPDRAGON_FW_THETFORD,T6_MOUNT_HORSE,T6_MOUNT_OX,T6_MOUNT_ARMORED_HORSE_SKIN_01.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=${qualities}`
     )
       .then((res) => res.json())
-      .then((json) => mauntt6(json));
+      .then((json) => analysisJSON(json, setItemt6));
   }
 
   useEffect(() => {
     addFitch();
-  }, []);
+  }, [qualities, qualitiesName]);
 
-  function mauntt6(data) {
+  function analysisJSON(data, arrays) {
     let array = [];
     data.map((data) => {
       const objectReadyJSON = {};
@@ -218,384 +220,7 @@ function Maunt() {
       array.push(objectReadyJSON);
     });
 
-    setItemt6(array);
-  }
-  function mauntt5(data) {
-    let array = [];
-    data.map((data) => {
-      const objectReadyJSON = {};
-
-      for (let i = 0; i < array.length; i++) {
-        if (array[i].item_id === data.item_id) {
-          if (data.city === "Bridgewatch")
-            array[i].Bridgewatch = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Martlock")
-            array[i].Martlock = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Thetford")
-            array[i].Thetford = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Fort Sterling")
-            array[i].FortSterling = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Lymhurst")
-            array[i].Lymhurst = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Caerleon")
-            array[i].Caerleon = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          return false;
-        }
-      }
-      objectReadyJSON.item_id = data.item_id;
-      if (data.city === "Bridgewatch")
-        objectReadyJSON.Bridgewatch = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Bridgewatch = { buy: 0, sell: 0 };
-      if (data.city === "Martlock")
-        objectReadyJSON.Martlock = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Martlock = { buy: 0, sell: 0 };
-      if (data.city === "Thetford")
-        objectReadyJSON.Thetford = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Thetford = { buy: 0, sell: 0 };
-      if (data.city === "FortSterling")
-        objectReadyJSON.FortSterling = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.FortSterling = { buy: 0, sell: 0 };
-      if (data.city === "Lymhurst")
-        objectReadyJSON.Lymhurst = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Lymhurst = { buy: 0, sell: 0 };
-      if (data.city === "Caerleon")
-        objectReadyJSON.Caerleon = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Caerleon = { buy: 0, sell: 0 };
-      array.push(objectReadyJSON);
-    });
-
-    setItemt5(array);
-  }
-  function mauntt4(data) {
-    let array = [];
-    data.map((data) => {
-      const objectReadyJSON = {};
-
-      for (let i = 0; i < array.length; i++) {
-        if (array[i].item_id === data.item_id) {
-          if (data.city === "Bridgewatch")
-            array[i].Bridgewatch = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Martlock")
-            array[i].Martlock = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Thetford")
-            array[i].Thetford = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Fort Sterling")
-            array[i].FortSterling = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Lymhurst")
-            array[i].Lymhurst = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Caerleon")
-            array[i].Caerleon = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          return false;
-        }
-      }
-      objectReadyJSON.item_id = data.item_id;
-      if (data.city === "Bridgewatch")
-        objectReadyJSON.Bridgewatch = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Bridgewatch = { buy: 0, sell: 0 };
-      if (data.city === "Martlock")
-        objectReadyJSON.Martlock = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Martlock = { buy: 0, sell: 0 };
-      if (data.city === "Thetford")
-        objectReadyJSON.Thetford = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Thetford = { buy: 0, sell: 0 };
-      if (data.city === "FortSterling")
-        objectReadyJSON.FortSterling = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.FortSterling = { buy: 0, sell: 0 };
-      if (data.city === "Lymhurst")
-        objectReadyJSON.Lymhurst = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Lymhurst = { buy: 0, sell: 0 };
-      if (data.city === "Caerleon")
-        objectReadyJSON.Caerleon = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Caerleon = { buy: 0, sell: 0 };
-      array.push(objectReadyJSON);
-    });
-
-    setItemt4(array);
-  }
-  function mauntt3(data) {
-    let array = [];
-    data.map((data) => {
-      const objectReadyJSON = {};
-
-      for (let i = 0; i < array.length; i++) {
-        if (array[i].item_id === data.item_id) {
-          if (data.city === "Bridgewatch")
-            array[i].Bridgewatch = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Martlock")
-            array[i].Martlock = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Thetford")
-            array[i].Thetford = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Fort Sterling")
-            array[i].FortSterling = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Lymhurst")
-            array[i].Lymhurst = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Caerleon")
-            array[i].Caerleon = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          return false;
-        }
-      }
-      objectReadyJSON.item_id = data.item_id;
-      if (data.city === "Bridgewatch")
-        objectReadyJSON.Bridgewatch = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Bridgewatch = { buy: 0, sell: 0 };
-      if (data.city === "Martlock")
-        objectReadyJSON.Martlock = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Martlock = { buy: 0, sell: 0 };
-      if (data.city === "Thetford")
-        objectReadyJSON.Thetford = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Thetford = { buy: 0, sell: 0 };
-      if (data.city === "FortSterling")
-        objectReadyJSON.FortSterling = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.FortSterling = { buy: 0, sell: 0 };
-      if (data.city === "Lymhurst")
-        objectReadyJSON.Lymhurst = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Lymhurst = { buy: 0, sell: 0 };
-      if (data.city === "Caerleon")
-        objectReadyJSON.Caerleon = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Caerleon = { buy: 0, sell: 0 };
-      array.push(objectReadyJSON);
-    });
-
-    setItemt3(array);
-  }
-
-  function analysisJSON(data) {
-    let array = [];
-    data.map((data) => {
-      const objectReadyJSON = {};
-
-      for (let i = 0; i < array.length; i++) {
-        if (array[i].item_id === data.item_id) {
-          if (data.city === "Bridgewatch")
-            array[i].Bridgewatch = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Martlock")
-            array[i].Martlock = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Thetford")
-            array[i].Thetford = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Fort Sterling")
-            array[i].FortSterling = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Lymhurst")
-            array[i].Lymhurst = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          if (data.city === "Caerleon")
-            array[i].Caerleon = {
-              buy: data.buy_price_min,
-              sell: data.sell_price_min,
-              sellDate: data.sell_price_min_date,
-            };
-          return false;
-        }
-      }
-      objectReadyJSON.item_id = data.item_id;
-      if (data.city === "Bridgewatch")
-        objectReadyJSON.Bridgewatch = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Bridgewatch = { buy: 0, sell: 0 };
-      if (data.city === "Martlock")
-        objectReadyJSON.Martlock = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Martlock = { buy: 0, sell: 0 };
-      if (data.city === "Thetford")
-        objectReadyJSON.Thetford = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Thetford = { buy: 0, sell: 0 };
-      if (data.city === "FortSterling")
-        objectReadyJSON.FortSterling = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.FortSterling = { buy: 0, sell: 0 };
-      if (data.city === "Lymhurst")
-        objectReadyJSON.Lymhurst = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Lymhurst = { buy: 0, sell: 0 };
-      if (data.city === "Caerleon")
-        objectReadyJSON.Caerleon = {
-          buy: data.buy_price_min,
-          sell: data.sell_price_min,
-          sellDate: data.sell_price_min_date,
-        };
-      else objectReadyJSON.Caerleon = { buy: 0, sell: 0 };
-      array.push(objectReadyJSON);
-    });
-
-    setItem(array);
+    arrays(array);
   }
 
   return (
@@ -604,22 +229,48 @@ function Maunt() {
         <div>
           <Nav>
             <NavMenu>
-              <h1>Т 1 - обычное</h1>
-              <NavLink to="/maunte" activeStyle>
+              <h1>Маунты - {qualitiesName}</h1>
+              <NavLink
+                onClick={() => {
+                  setQualities(1);
+                  setQualitiesName("обычное");
+                }}
+              >
                 1
               </NavLink>
-              <NavLink to="/maunt2e" activeStyle>
+              <NavLink
+                onClick={() => {
+                  setQualities(2);
+                  setQualitiesName("хорошее");
+                }}
+              >
                 2
               </NavLink>
-              <NavLink to="/maunt3e" activeStyle>
+              <NavLink
+                onClick={() => {
+                  setQualities(3);
+                  setQualitiesName("выдающиеся");
+                }}
+              >
                 3
               </NavLink>
-              <NavLink to="/maunt4e" activeStyle>
+              <NavLink
+                onClick={() => {
+                  setQualities(4);
+                  setQualitiesName("отличное");
+                }}
+              >
                 4
               </NavLink>
-              <NavLink to="/maunt5e" activeStyle>
+              <NavLink
+                onClick={() => {
+                  setQualities(5);
+                  setQualitiesName("шедевр");
+                }}
+              >
                 5
               </NavLink>
+
               <h1>Сервер: EAST</h1>
             </NavMenu>
           </Nav>

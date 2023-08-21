@@ -10,10 +10,10 @@ const Navbar = () => {
     setIsOpen(!isOpen);
     if (!isOpen) {
       console.log("false");
-      navigate("/west");
+      navigate("/east");
     } else {
       console.log("true");
-      navigate("/east");
+      navigate("/west");
     }
   };
 

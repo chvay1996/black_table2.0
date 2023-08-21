@@ -6,90 +6,100 @@ import {
 } from "../../../../components/Navbar/NavbarElements";
 
 let Enum = {
-  T4_HEAD_CLOTH_SET1: "Колпак ученого (знаток)",
-  T4_HEAD_CLOTH_SET2: "Колпак клирика (знаток)",
-  T4_HEAD_CLOTH_SET3: "Колпак чародея (знаток)",
-  T4_ARMOR_CLOTH_SET1: "Мантия ученого (знаток)",
-  T4_ARMOR_CLOTH_SET2: "Мантия клирика (знаток)",
-  T4_ARMOR_CLOTH_SET3: "Мантия чародея (знаток)",
-  T4_SHOES_CLOTH_SET1: "Сандалии ученого (знаток)",
-  T4_SHOES_CLOTH_SET2: "Сандалии клирика (знаток)",
-  T4_SHOES_CLOTH_SET3: "Сандалии чародея (знаток)",
-  T4_MAIN_ARCANESTAFF: "Мистический посох (знаток)",
-  T4_2H_ARCANESTAFF: "Большой мистический посох (знаток)",
-  T4_2H_ENIGMATICSTAFF: "Загадочный посох (знаток)",
-  T4_MAIN_CURSEDSTAFF: "Проклятый посох (знаток)",
-  T4_2H_CURSEDSTAFF: "Большой проклятый посох (знаток)",
-  T4_2H_DEMONICSTAFF: "Демонический посох (знаток)",
-  T4_MAIN_FIRESTAFF: "Огненный посох (знаток)",
-  T4_2H_FIRESTAFF: "Большой огненный посох (знаток)",
-  T4_2H_INFERNOSTAFF: "Адский посох (знаток)",
-  T4_MAIN_FROSTSTAFF: "Морозный посох (знаток)",
-  T4_2H_FROSTSTAFF: "Большой морозный посох (знаток)",
-  T4_2H_GLACIALSTAFF: "Ледяной посох (знаток)",
-  T4_MAIN_HOLYSTAFF: "Священный посох (знаток)",
-  T4_2H_HOLYSTAFF: "Большой священный посох (знаток)",
-  T4_2H_DIVINESTAFF: "Божественный посох (знаток)",
-  T4_OFF_BOOK: "Книга заклинаний (знаток)",
-  T4_HEAD_LEATHER_SET1: "Капюшон наемника (знатока)",
-  T4_HEAD_LEATHER_SET2: "Капюшон охотника (знаток)",
-  T4_HEAD_LEATHER_SET3: "Капюшон убийцы (знаток)",
-  T4_ARMOR_LEATHER_SET1: "Куртка наемника (знаток)",
-  T4_ARMOR_LEATHER_SET2: "Куртка охотника (знаток)",
-  T4_ARMOR_LEATHER_SET3: "Куртка убийцы (знаток)",
-  T4_SHOES_LEATHER_SET1: "Ботинки наемника (знаток)",
-  T4_SHOES_LEATHER_SET2: "Ботинки охотника (знаток)",
-  T4_SHOES_LEATHER_SET3: "Ботинки убийцы (знаток)",
-  T4_2H_BOW: "Лук (знаток)",
-  T4_2H_WARBOW: "Боевой лук (знаток)",
-  T4_2H_LONGBOW: "Длинный лук (знаток)",
-  T4_MAIN_SPEAR: "Копье (знаток)",
-  T4_2H_SPEAR: "Пика (знаток)",
-  T4_2H_GLAIVE: "Глефа (знаток)",
-  T4_MAIN_NATURESTAFF: "Древесный посох (знаток)",
-  T4_2H_NATURESTAFF: "Большой древесный посох (знаток)",
-  T4_2H_WILDSTAFF: "Дикий посох (знаток)",
-  T4_MAIN_DAGGER: "Кинжал (знаток)",
-  T4_2H_DAGGERPAIR: "Парные кинжалы (знаток)",
-  T4_2H_CLAWPAIR: "Когти (знаток)",
-  T4_2H_QUARTERSTAFF: "Боевой шест (знаток)",
-  T4_2H_IRONCLADEDSTAFF: "Железный посох (знаток)",
-  T4_2H_DOUBLEBLADEDSTAFF: "Острый шест (знаток)",
-  T4_OFF_TORCH: "Факел (знаток)",
-  T4_HEAD_PLATE_SET1: "Шлем солдата (знаток)",
-  T4_HEAD_PLATE_SET2: "Шлем рыцаря (знаток)",
-  T4_HEAD_PLATE_SET3: "Шлем хранителя (знаток)",
-  T4_ARMOR_PLATE_SET1: "Броня солдата (знаток)",
-  T4_ARMOR_PLATE_SET2: "Броня рыцаря (знаток)",
-  T4_ARMOR_PLATE_SET3: "Броня хранителя (знаток)",
-  T4_SHOES_PLATE_SET1: "Сапоги солдата (знаток)",
-  T4_SHOES_PLATE_SET2: "Сапоги рыцаря (знаток)",
-  T4_SHOES_PLATE_SET3: "Сапоги хранителя (знаток)",
-  T4_MAIN_SWORD: "Палаш (знаток)",
-  T4_2H_CLAYMORE: "Клеймор (знаток)",
-  T4_2H_DUALSWORD: "Парные мечи (знаток)",
-  T4_MAIN_AXE: "Боевой топор (знаток)",
-  T4_2H_AXE: "Большой топор (знаток)",
-  T4_2H_HALBERD: "Алебарда (знаток)",
-  T4_2H_MACE: "Булава (знаток)",
-  T4_MAIN_MACE: "Тяжелая булава (знаток)",
-  T4_2H_FLAIL: "Моргенштерн (знаток)",
-  T4_2H_TOOL_SIEGEHAMMER: "Молот (знаток)",
-  T4_2H_POLEHAMMER: "Чекан (знаток)",
-  T4_2H_HAMMER: "Большой молот (знаток)",
-  T4_2H_CROSSBOW: "Арбалет (знаток)",
-  T4_2H_CROSSBOWLARGE: "Тяжелый арбалет (знаток)",
-  T4_MAIN_1HCROSSBOW: "Легкий арбалет (знаток)",
-  T4_OFF_SHIELD: "Щит (знаток)",
-  T4_BAG: "Сумка (знаток)",
-  T4_CAPE: "Плащ (знаток)",
-  T4_HEAD_LEATHER_MORGANA: "Капюшон лазутчика",
-  T4_ARMOR_LEATHER_MORGANA: "Куртка лазутчика",
-  T4_SHOES_LEATHER_MORGANA: "Батинка лазутчика",
+  T6_HEAD_CLOTH_SET1: "Колпак ученого (мастер)",
+  T6_HEAD_CLOTH_SET2: "Колпак клирика (мастер)",
+  T6_HEAD_CLOTH_SET3: "Колпак чародея (мастер)",
+  T6_ARMOR_CLOTH_SET1: "Мантия ученого (мастер)",
+  T6_ARMOR_CLOTH_SET2: "Мантия клирика (мастер)",
+  T6_ARMOR_CLOTH_SET3: "Мантия чародея (мастер)",
+  T6_SHOES_CLOTH_SET1: "Сандалии ученого (мастер)",
+  T6_SHOES_CLOTH_SET2: "Сандалии клирика (мастер)",
+  T6_SHOES_CLOTH_SET3: "Сандалии чародея (мастер)",
+  T6_MAIN_ARCANESTAFF: "Мистический посох (мастер)",
+  T6_2H_ARCANESTAFF: "Большой мистический посох (мастер)",
+  T6_2H_ENIGMATICSTAFF: "Загадочный посох (мастер)",
+  T6_MAIN_CURSEDSTAFF: "Проклятый посох (мастер)",
+  T6_2H_CURSEDSTAFF: "Большой проклятый посох (мастер)",
+  T6_2H_DEMONICSTAFF: "Демонический посох (мастер)",
+  T6_MAIN_FIRESTAFF: "Огненный посох (мастер)",
+  T6_2H_FIRESTAFF: "Большой огненный посох (мастер)",
+  T6_2H_INFERNOSTAFF: "Адский посох (мастер)",
+  T6_MAIN_FROSTSTAFF: "Морозный посох (мастер)",
+  T6_2H_FROSTSTAFF: "Большой морозный посох (мастер)",
+  T6_2H_GLACIALSTAFF: "Ледяной посох (мастер)",
+  T6_MAIN_HOLYSTAFF: "Священный посох (мастер)",
+  T6_2H_HOLYSTAFF: "Большой священный посох (мастер)",
+  T6_2H_DIVINESTAFF: "Божественный посох (мастер)",
+  T6_OFF_BOOK: "Книга заклинаний (мастер)",
+  T6_HEAD_LEATHER_SET1: "Капюшон наемника (знатока)",
+  T6_HEAD_LEATHER_SET2: "Капюшон охотника (мастер)",
+  T6_HEAD_LEATHER_SET3: "Капюшон убийцы (мастер)",
+  T6_ARMOR_LEATHER_SET1: "Куртка наемника (мастер)",
+  T6_ARMOR_LEATHER_SET2: "Куртка охотника (мастер)",
+  T6_ARMOR_LEATHER_SET3: "Куртка убийцы (мастер)",
+  T6_SHOES_LEATHER_SET1: "Ботинки наемника (мастер)",
+  T6_SHOES_LEATHER_SET2: "Ботинки охотника (мастер)",
+  T6_SHOES_LEATHER_SET3: "Ботинки убийцы (мастер)",
+  T6_2H_BOW: "Лук (мастер)",
+  T6_2H_WARBOW: "Боевой лук (мастер)",
+  T6_2H_LONGBOW: "Длинный лук (мастер)",
+  T6_MAIN_SPEAR: "Копье (мастер)",
+  T6_2H_SPEAR: "Пика (мастер)",
+  T6_2H_GLAIVE: "Глефа (мастер)",
+  T6_MAIN_NATURESTAFF: "Древесный посох (мастер)",
+  T6_2H_NATURESTAFF: "Большой древесный посох (мастер)",
+  T6_2H_WILDSTAFF: "Дикий посох (мастер)",
+  T6_MAIN_DAGGER: "Кинжал (мастер)",
+  T6_2H_DAGGERPAIR: "Парные кинжалы (мастер)",
+  T6_2H_CLAWPAIR: "Когти (мастер)",
+  T6_2H_QUARTERSTAFF: "Боевой шест (мастер)",
+  T6_2H_IRONCLADEDSTAFF: "Железный посох (мастер)",
+  T6_2H_DOUBLEBLADEDSTAFF: "Острый шест (мастер)",
+  T6_OFF_TORCH: "Факел (мастер)",
+  T6_HEAD_PLATE_SET1: "Шлем солдата (мастер)",
+  T6_HEAD_PLATE_SET2: "Шлем рыцаря (мастер)",
+  T6_HEAD_PLATE_SET3: "Шлем хранителя (мастер)",
+  T6_ARMOR_PLATE_SET1: "Броня солдата (мастер)",
+  T6_ARMOR_PLATE_SET2: "Броня рыцаря (мастер)",
+  T6_ARMOR_PLATE_SET3: "Броня хранителя (мастер)",
+  T6_SHOES_PLATE_SET1: "Сапоги солдата (мастер)",
+  T6_SHOES_PLATE_SET2: "Сапоги рыцаря (мастер)",
+  T6_SHOES_PLATE_SET3: "Сапоги хранителя (мастер)",
+  T6_MAIN_SWORD: "Палаш (мастер)",
+  T6_2H_CLAYMORE: "Клеймор (мастер)",
+  T6_2H_DUALSWORD: "Парные мечи (мастер)",
+  T6_MAIN_AXE: "Боевой топор (мастер)",
+  T6_2H_AXE: "Большой топор (мастер)",
+  T6_2H_HALBERD: "Алебарда (мастер)",
+  T6_2H_MACE: "Булава (мастер)",
+  T6_MAIN_MACE: "Тяжелая булава (мастер)",
+  T6_2H_FLAIL: "Моргенштерн (мастер)",
+  T6_2H_TOOL_SIEGEHAMMER: "Молот (мастер)",
+  T6_2H_POLEHAMMER: "Чекан (мастер)",
+  T6_2H_HAMMER: "Большой молот (мастер)",
+  T6_2H_CROSSBOW: "Арбалет (мастер)",
+  T6_2H_CROSSBOWLARGE: "Тяжелый арбалет (мастер)",
+  T6_MAIN_1HCROSSBOW: "Легкий арбалет (мастер)",
+  T6_OFF_SHIELD: "Щит (мастер)",
+  T6_BAG: "Сумка (мастер)",
+  T6_CAPE: "Плащ (мастер)",
 };
-
+let artef = {
+  T6_HEAD_LEATHER_MORGANA: "Капюшон лазутчика",
+  T6_ARMOR_LEATHER_MORGANA: "Куртка лазутчика",
+  T6_SHOES_LEATHER_MORGANA: "Батинка лазутчика",
+  T6_HEAD_CLOTH_KEEPER: "Колпак друида",
+  T6_ARMOR_CLOTH_KEEPER: "Мантия друида",
+  T6_SHOES_CLOTH_KEEPER: "Сандалии друида",
+  T6_HEAD_PLATE_UNDEAD: "Могильный шлем",
+  T6_ARMOR_PLATE_UNDEAD: "Могильная броня",
+  T6_SHOES_PLATE_UNDEAD: "Могильные сапоги",
+};
 Enum = Object.fromEntries(
   Object.keys(Enum).map((key) => [key + "@1", Enum[key]])
+);
+artef = Object.fromEntries(
+  Object.keys(artef).map((key) => [key + "@1", artef[key]])
 );
 
 function checkTime(firstDate, secondDate) {
@@ -104,36 +114,42 @@ function checkTime(firstDate, secondDate) {
 }
 
 function checkTimeBD(Other) {
-  if (Other) {
-    let timeTamp = Other.split("T")[1].split(":");
-    let globalTamp = new Date().toUTCString().split(" ")[4].split(":");
+  let timeTamp = Other.split("T")[1].split(":");
+  let globalTamp = new Date().toUTCString().split(" ")[4].split(":");
 
-    if (Other !== 0) {
-      let checkTimes = checkTime(
-        `${timeTamp[0]}:${timeTamp[1]}`,
-        `${globalTamp[0]}:${globalTamp[1]}`
-      );
-      if (!checkTimes.match("-")) return checkTimes;
-    }
+  if (Other !== 0) {
+    let checkTimes = checkTime(
+      `${timeTamp[0]}:${timeTamp[1]}`,
+      `${globalTamp[0]}:${globalTamp[1]}`
+    );
+    if (!checkTimes.match("-")) return checkTimes;
   }
 }
 
 function App() {
   const [item, setItem] = useState([]);
+  const [qualities, setQualities] = useState(1);
+  const [qualitiesName, setQualitiesName] = useState("Обычное");
+  const [itemArtef, setItemArtef] = useState([]);
 
   function addFitch() {
     fetch(
-      `https://west.albion-online-data.com/api/v2/stats/prices/T4_SHOES_LEATHER_MORGANA@1,T4_ARMOR_LEATHER_MORGANA@1,T4_HEAD_LEATHER_MORGANA@1,T4_HEAD_CLOTH_SET1@1,T4_HEAD_CLOTH_SET2@1,T4_HEAD_CLOTH_SET3@1,T4_ARMOR_CLOTH_SET1@1,T4_ARMOR_CLOTH_SET2@1,T4_ARMOR_CLOTH_SET3@1,T4_SHOES_CLOTH_SET1@1,T4_SHOES_CLOTH_SET2@1,T4_SHOES_CLOTH_SET3@1,T4_MAIN_ARCANESTAFF@1,T4_2H_ARCANESTAFF@1,T4_2H_ENIGMATICSTAFF@1,T4_MAIN_CURSEDSTAFF@1,T4_2H_CURSEDSTAFF@1,T4_2H_DEMONICSTAFF@1,T4_MAIN_FIRESTAFF@1,T4_2H_FIRESTAFF@1,T4_2H_INFERNOSTAFF@1,T4_2H_FROSTSTAFF@1,T4_2H_FROSTSTAFF@1,T4_2H_GLACIALSTAFF@1,T4_MAIN_HOLYSTAFF@1,T4_2H_HOLYSTAFF@1,T4_2H_DIVINESTAFF@1,T4_OFF_BOOK@1,T4_HEAD_LEATHER_SET2@1,T4_HEAD_LEATHER_SET3@1,T4_ARMOR_LEATHER_SET1@1,T4_ARMOR_LEATHER_SET2@1,T4_ARMOR_LEATHER_SET3@1,T4_SHOES_LEATHER_SET1@1,T4_SHOES_LEATHER_SET2@1,T4_SHOES_LEATHER_SET3@1,T4_2H_BOW@1,T4_2H_WARBOW@1,T4_2H_LONGBOW@1,T4_MAIN_SPEAR@1,T4_2H_SPEAR@1,T4_2H_GLAIVE@1,T4_MAIN_NATURESTAFF@1,T4_2H_NATURESTAFF@1,T4_2H_WILDSTAFF@1,T4_MAIN_DAGGER@1,T4_2H_DAGGERPAIR@1,T4_2H_CLAWPAIR@1,T4_2H_QUARTERSTAFF@1,T4_2H_IRONCLADEDSTAFF@1,T4_2H_DOUBLEBLADEDSTAFF@1,T4_OFF_TORCH@1,T4_HEAD_PLATE_SET1@1,T4_HEAD_PLATE_SET2@1,T4_HEAD_PLATE_SET3@1,T4_ARMOR_PLATE_SET1@1,T4_ARMOR_PLATE_SET2@1,T4_ARMOR_PLATE_SET3@1,T4_SHOES_PLATE_SET1@1,T4_SHOES_PLATE_SET2@1,T4_SHOES_PLATE_SET3@1,T4_MAIN_SWORD@1,T4_2H_CLAYMORE@1,T4_2H_DUALSWORD@1,T4_MAIN_AXE@1,T4_2H_AXE@1,T4_2H_HALBERD@1,T4_2H_MACE@1,T4_MAIN_MACE@1,T4_2H_FLAIL@1,T4_2H_TOOL_SIEGEHAMMER@1,T4_2H_POLEHAMMER@1,T4_2H_HAMMER@1,T4_2H_CROSSBOW@1,T4_2H_CROSSBOWLARGE@1,T4_MAIN_1HCROSSBOW@1,T4_OFF_SHIELD@1,T4_BAG@1,T4_CAPE@1.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=1`
+      `https://WEST.albion-online-data.com/api/v2/stats/prices/T6_HEAD_CLOTH_SET1@1,T6_HEAD_CLOTH_SET2@1,T6_HEAD_CLOTH_SET3@1,T6_ARMOR_CLOTH_SET1@1,T6_ARMOR_CLOTH_SET2@1,T6_ARMOR_CLOTH_SET3@1,T6_SHOES_CLOTH_SET1@1,T6_SHOES_CLOTH_SET2@1,T6_SHOES_CLOTH_SET3@1,T6_MAIN_ARCANESTAFF@1,T6_2H_ARCANESTAFF@1,T6_2H_ENIGMATICSTAFF@1,T6_MAIN_CURSEDSTAFF@1,T6_2H_CURSEDSTAFF@1,T6_2H_DEMONICSTAFF@1,T6_MAIN_FIRESTAFF@1,T6_2H_FIRESTAFF@1,T6_2H_INFERNOSTAFF@1,T6_2H_FROSTSTAFF@1,T6_2H_FROSTSTAFF@1,T6_2H_GLACIALSTAFF@1,T6_MAIN_HOLYSTAFF@1,T6_2H_HOLYSTAFF@1,T6_2H_DIVINESTAFF@1,T6_OFF_BOOK@1,T6_HEAD_LEATHER_SET2@1,T6_HEAD_LEATHER_SET3@1,T6_ARMOR_LEATHER_SET1@1,T6_ARMOR_LEATHER_SET2@1,T6_ARMOR_LEATHER_SET3@1,T6_SHOES_LEATHER_SET1@1,T6_SHOES_LEATHER_SET2@1,T6_SHOES_LEATHER_SET3@1,T6_2H_BOW@1,T6_2H_WARBOW@1,T6_2H_LONGBOW@1,T6_MAIN_SPEAR@1,T6_2H_SPEAR@1,T6_2H_GLAIVE@1,T6_MAIN_NATURESTAFF@1,T6_2H_NATURESTAFF@1,T6_2H_WILDSTAFF@1,T6_MAIN_DAGGER@1,T6_2H_DAGGERPAIR@1,T6_2H_CLAWPAIR@1,T6_2H_QUARTERSTAFF@1,T6_2H_IRONCLADEDSTAFF@1,T6_2H_DOUBLEBLADEDSTAFF@1,T6_OFF_TORCH@1,T6_HEAD_PLATE_SET1@1,T6_HEAD_PLATE_SET2@1,T6_HEAD_PLATE_SET3@1,T6_ARMOR_PLATE_SET1@1,T6_ARMOR_PLATE_SET2@1,T6_ARMOR_PLATE_SET3@1,T6_SHOES_PLATE_SET1@1,T6_SHOES_PLATE_SET2@1,T6_SHOES_PLATE_SET3@1,T6_MAIN_SWORD@1,T6_2H_CLAYMORE@1,T6_2H_DUALSWORD@1,T6_MAIN_AXE@1,T6_2H_AXE@1,T6_2H_HALBERD@1,T6_2H_MACE@1,T6_MAIN_MACE@1,T6_2H_FLAIL@1,T6_2H_TOOL_SIEGEHAMMER@1,T6_2H_POLEHAMMER@1,T6_2H_HAMMER@1,T6_2H_CROSSBOW@1,T6_2H_CROSSBOWLARGE@1,T6_MAIN_1HCROSSBOW@1,T6_OFF_SHIELD@1,T6_BAG@1,T6_CAPE@1.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=${qualities}`
     )
       .then((res) => res.json())
-      .then((json) => analysisJSON(json));
+      .then((json) => analysisJSON(json, setItem));
+    fetch(
+      `https://WEST.albion-online-data.com/api/v2/stats/prices/T6_SHOES_PLATE_UNDEAD@1,T6_ARMOR_PLATE_UNDEAD@1,T6_HEAD_PLATE_UNDEAD@1,T6_SHOES_CLOTH_KEEPER@1,T6_ARMOR_CLOTH_KEEPER@1,T6_HEAD_CLOTH_KEEPER@1,T6_SHOES_LEATHER_MORGANA@1,T6_ARMOR_LEATHER_MORGANA@1,T6_HEAD_LEATHER_MORGANA@1.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=${qualities}`
+    )
+      .then((res) => res.json())
+      .then((json) => analysisJSON(json, setItemArtef));
   }
 
   useEffect(() => {
     addFitch();
-  }, []);
+  }, [qualities, qualitiesName]);
 
-  function analysisJSON(data) {
+  function analysisJSON(data, arrays) {
     let array = [];
     data.map((data) => {
       const objectReadyJSON = {};
@@ -238,7 +254,7 @@ function App() {
       array.push(objectReadyJSON);
     });
 
-    setItem(array);
+    arrays(array);
   }
 
   function profit(BM, Other) {
@@ -257,7 +273,7 @@ function App() {
     } else profitColorProc = "#e98282";
     return (
       <h>
-        <font style={{ color: profitColor }}>{profit}</font> |{" "}
+        <font style={{ color: profitColor }}>{profit}</font> |
         <font style={{ color: profitColorProc }}>{profitProc}%</font>
       </h>
     );
@@ -266,50 +282,78 @@ function App() {
   return (
     <>
       <div style={{ position: "sticky", top: "5px" }}>
-        <Nav>
-          <NavMenu>
-            <div style={{ display: "contents" }}>
-              <NavLink to="/three">T 3</NavLink>
-              <>
-                <NavLink to="/tfour">T 4.0</NavLink>
-                <NavLink to="/fourOne">T 4.1</NavLink>
-              </>
-              <>
-                <NavLink to="/tfive">Т 5.0</NavLink>
-                <NavLink to="/fiveOne">Т 5.1</NavLink>
-              </>
-              <>
-                <NavLink to="/tsix">T 6.0</NavLink>
-                <NavLink to="/sixOne">T 6.1</NavLink>
-              </>
-              <>
-                <NavLink to="/seven">T 7.0</NavLink>
-                <NavLink to="/sevenOne">T 7.1</NavLink>
-              </>
-              <>
-                <NavLink to="/eight">T 8.0</NavLink>
-                <NavLink to="/eightOne">T 8.1</NavLink>
-              </>
-            </div>
-            <h1>Т 4.1 - обычное</h1>
-            <NavLink to="/fourOne" activeStyle>
-              1
-            </NavLink>
-            <NavLink to="/fourOne2" activeStyle>
-              2
-            </NavLink>
-            <NavLink to="/fourOne3" activeStyle>
-              3
-            </NavLink>
-            <NavLink to="/fourOne4" activeStyle>
-              4
-            </NavLink>
-            <NavLink to="/fourOne5" activeStyle>
-              5
-            </NavLink>
-            <h1>Сервер: WEST</h1>
-          </NavMenu>
-        </Nav>
+        <>
+          <Nav>
+            <NavMenu>
+              <div style={{ display: "contents" }}>
+                <NavLink to="/threeE">T 3</NavLink>
+                <>
+                  <NavLink to="/tfourE">T 4.0</NavLink>
+                  <NavLink to="/fourOneE">T 4.1</NavLink>
+                </>
+                <>
+                  <NavLink to="/tfiveE">Т 5.0</NavLink>
+                  <NavLink to="/fiveOneE">Т 5.1</NavLink>
+                </>
+                <>
+                  <NavLink to="/tsixE">T 6.0</NavLink>
+                  <NavLink to="/sixOneE">T 6.1</NavLink>
+                </>
+                <>
+                  <NavLink to="/sevenE">T 7.0</NavLink>
+                  <NavLink to="/sevenOneE">T 7.1</NavLink>
+                </>
+                <>
+                  <NavLink to="/eightE">T 8.0</NavLink>
+                  <NavLink to="/eightOneE">T 8.1</NavLink>
+                </>
+              </div>
+              <h1>Т 4.1 - {qualitiesName}</h1>
+              <NavLink
+                onClick={() => {
+                  setQualities(1);
+                  setQualitiesName("обычное");
+                }}
+              >
+                1
+              </NavLink>
+              <NavLink
+                onClick={() => {
+                  setQualities(2);
+                  setQualitiesName("хорошее");
+                }}
+              >
+                2
+              </NavLink>
+              <NavLink
+                onClick={() => {
+                  setQualities(3);
+                  setQualitiesName("выдающиеся");
+                }}
+              >
+                3
+              </NavLink>
+              <NavLink
+                onClick={() => {
+                  setQualities(4);
+                  setQualitiesName("отличное");
+                }}
+              >
+                4
+              </NavLink>
+              <NavLink
+                onClick={() => {
+                  setQualities(5);
+                  setQualitiesName("шедевр");
+                }}
+              >
+                5
+              </NavLink>
+
+              <h1>Сервер: WEST</h1>
+            </NavMenu>
+          </Nav>
+        </>
       </div>
       <table
         style={{
@@ -474,77 +518,152 @@ function App() {
               <tr key={key}>
                 <img style={{ width: "25px" }} src={url} />
                 <th>{Enum[items.item_id]}</th>
-                <th>{items?.BlackMarket?.sell}</th>
-                <th>{Math.round((items?.BlackMarket?.sell / 100) * 89.5)}</th>
-                <th>{checkTimeBD(items?.BlackMarket?.sellDate)}</th>
+                <th>{items.BlackMarket.sell}</th>
+                <th>{Math.round((items.BlackMarket.sell / 100) * 89.5)}</th>
+                <th>{checkTimeBD(items.BlackMarket.sellDate)}</th>
                 <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
-                  {items?.Bridgewatch?.sell}
+                  {items.Bridgewatch.sell}
                 </th>
                 <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
-                  {items?.BlackMarket?.sell && items?.Bridgewatch?.sell
-                    ? profit(items?.BlackMarket?.sell, items?.Bridgewatch?.sell)
+                  {items.BlackMarket.sell && items.Bridgewatch.sell
+                    ? profit(items.BlackMarket.sell, items.Bridgewatch.sell)
                     : ""}
                 </th>
                 <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
-                  {checkTimeBD(items?.Martlock?.sellDate)}
+                  {checkTimeBD(items.Martlock.sellDate)}
                 </th>
                 <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
-                  {items?.Martlock?.sell}
+                  {items.Martlock.sell}
                 </th>
                 <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
-                  {items?.BlackMarket?.sell && items?.Martlock?.sell
-                    ? profit(items?.BlackMarket?.sell, items?.Martlock?.sell)
+                  {items.BlackMarket.sell && items.Martlock.sell
+                    ? profit(items.BlackMarket.sell, items.Martlock.sell)
                     : ""}
                 </th>
                 <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
-                  {checkTimeBD(items?.Thetford?.sellDate)}
+                  {checkTimeBD(items.Thetford.sellDate)}
                 </th>
                 <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
-                  {items?.Thetford?.sell}
+                  {items.Thetford.sell}
                 </th>
                 <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
-                  {items?.BlackMarket?.sell && items?.Thetford?.sell
-                    ? profit(items?.BlackMarket?.sell, items?.Thetford?.sell)
+                  {items.BlackMarket.sell && items.Thetford.sell
+                    ? profit(items.BlackMarket.sell, items.Thetford.sell)
                     : ""}
                 </th>
                 <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
-                  {checkTimeBD(items?.FortSterling?.sellDate)}
+                  {checkTimeBD(items.FortSterling.sellDate)}
                 </th>
                 <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
-                  {items?.FortSterling?.sell}
+                  {items.FortSterling.sell}
                 </th>
                 <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
-                  {items?.BlackMarket?.sell && items?.FortSterling?.sell
-                    ? profit(
-                        items?.BlackMarket?.sell,
-                        items?.FortSterling?.sell
-                      )
+                  {items.BlackMarket.sell && items.FortSterling.sell
+                    ? profit(items.BlackMarket.sell, items.FortSterling.sell)
                     : ""}
                 </th>
                 <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
-                  {checkTimeBD(items?.FortSterling?.sellDate)}
+                  {checkTimeBD(items.FortSterling.sellDate)}
                 </th>
                 <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
-                  {items?.Lymhurst?.sell}
+                  {items.Lymhurst.sell}
                 </th>
                 <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
-                  {items.BlackMarket.sell && items?.Lymhurst?.sell
-                    ? profit(items?.BlackMarket?.sell, items?.Lymhurst?.sell)
+                  {items.BlackMarket.sell && items.Lymhurst.sell
+                    ? profit(items.BlackMarket.sell, items.Lymhurst.sell)
                     : ""}
                 </th>
                 <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
-                  {checkTimeBD(items?.Lymhurst?.sellDate)}
+                  {checkTimeBD(items.Lymhurst.sellDate)}
                 </th>
                 <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
-                  {items?.Caerleon?.sell}
+                  {items.Caerleon.sell}
                 </th>
                 <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
-                  {items?.BlackMarket?.sell && items?.Caerleon?.sell
-                    ? profit(items?.BlackMarket?.sell, items?.Caerleon?.sell)
+                  {items.BlackMarket.sell && items.Caerleon.sell
+                    ? profit(items.BlackMarket.sell, items.Caerleon.sell)
                     : ""}
                 </th>
                 <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
-                  {checkTimeBD(items?.Caerleon?.sellDate)}
+                  {checkTimeBD(items.Caerleon.sellDate)}
+                </th>
+              </tr>
+            );
+          })}
+          {itemArtef.map((items, key) => {
+            let url = `https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/${items.item_id}`;
+            return (
+              <tr key={key}>
+                <img style={{ width: "25px" }} src={url} />
+                <th>{artef[items.item_id]}</th>
+                <th>{items.BlackMarket.sell}</th>
+                <th>{Math.round((items.BlackMarket.sell / 100) * 89.5)}</th>
+                <th>{checkTimeBD(items.BlackMarket.sellDate)}</th>
+                <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
+                  {items.Bridgewatch.sell}
+                </th>
+                <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
+                  {items.BlackMarket.sell && items.Bridgewatch.sell
+                    ? profit(items.BlackMarket.sell, items.Bridgewatch.sell)
+                    : ""}
+                </th>
+                <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
+                  {checkTimeBD(items.Martlock.sellDate)}
+                </th>
+                <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
+                  {items.Martlock.sell}
+                </th>
+                <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
+                  {items.BlackMarket.sell && items.Martlock.sell
+                    ? profit(items.BlackMarket.sell, items.Martlock.sell)
+                    : ""}
+                </th>
+                <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
+                  {checkTimeBD(items.Thetford.sellDate)}
+                </th>
+                <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
+                  {items.Thetford.sell}
+                </th>
+                <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
+                  {items.BlackMarket.sell && items.Thetford.sell
+                    ? profit(items.BlackMarket.sell, items.Thetford.sell)
+                    : ""}
+                </th>
+                <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
+                  {checkTimeBD(items.FortSterling.sellDate)}
+                </th>
+                <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
+                  {items.FortSterling.sell}
+                </th>
+                <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
+                  {items.BlackMarket.sell && items.FortSterling.sell
+                    ? profit(items.BlackMarket.sell, items.FortSterling.sell)
+                    : ""}
+                </th>
+                <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
+                  {checkTimeBD(items.FortSterling.sellDate)}
+                </th>
+                <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
+                  {items.Lymhurst.sell}
+                </th>
+                <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
+                  {items.BlackMarket.sell && items.Lymhurst.sell
+                    ? profit(items.BlackMarket.sell, items.Lymhurst.sell)
+                    : ""}
+                </th>
+                <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
+                  {checkTimeBD(items.Lymhurst.sellDate)}
+                </th>
+                <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
+                  {items.Caerleon.sell}
+                </th>
+                <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
+                  {items.BlackMarket.sell && items.Caerleon.sell
+                    ? profit(items.BlackMarket.sell, items.Caerleon.sell)
+                    : ""}
+                </th>
+                <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
+                  {checkTimeBD(items.Caerleon.sellDate)}
                 </th>
               </tr>
             );

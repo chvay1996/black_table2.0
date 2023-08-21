@@ -5,7 +5,7 @@ import {
   NavMenu,
 } from "../../../components/Navbar/NavbarElements";
 
-const Enum = {
+let Enum = {
   T4_HEAD_CLOTH_SET1: "Колпак ученого (знаток)",
   T4_HEAD_CLOTH_SET2: "Колпак клирика (знаток)",
   T4_HEAD_CLOTH_SET3: "Колпак чародея (знаток)",
@@ -88,6 +88,12 @@ const artef = {
   T4_HEAD_LEATHER_MORGANA: "Капюшон лазутчика",
   T4_ARMOR_LEATHER_MORGANA: "Куртка лазутчика",
   T4_SHOES_LEATHER_MORGANA: "Батинка лазутчика",
+  T4_HEAD_CLOTH_KEEPER: "Колпак друида",
+  T4_ARMOR_CLOTH_KEEPER: "Мантия друида",
+  T4_SHOES_CLOTH_KEEPER: "Сандалии друида",
+  T4_HEAD_PLATE_UNDEAD: "Могильный шлем",
+  T4_ARMOR_PLATE_UNDEAD: "Могильная броня",
+  T4_SHOES_PLATE_UNDEAD: "Могильные сапоги",
 };
 
 function checkTime(firstDate, secondDate) {
@@ -116,16 +122,18 @@ function checkTimeBD(Other) {
 
 function App() {
   const [item, setItem] = useState([]);
+  const [qualities, setQualities] = useState(1);
+  const [qualitiesName, setQualitiesName] = useState("Обычное");
   const [itemArtef, setItemArtef] = useState([]);
 
   function addFitch() {
     fetch(
-      `https://east.albion-online-data.com/api/v2/stats/prices/T4_HEAD_CLOTH_SET1,T4_HEAD_CLOTH_SET2,T4_HEAD_CLOTH_SET3,T4_ARMOR_CLOTH_SET1,T4_ARMOR_CLOTH_SET2,T4_ARMOR_CLOTH_SET3,T4_SHOES_CLOTH_SET1,T4_SHOES_CLOTH_SET2,T4_SHOES_CLOTH_SET3,T4_MAIN_ARCANESTAFF,T4_2H_ARCANESTAFF,T4_2H_ENIGMATICSTAFF,T4_MAIN_CURSEDSTAFF,T4_2H_CURSEDSTAFF,T4_2H_DEMONICSTAFF,T4_MAIN_FIRESTAFF,T4_2H_FIRESTAFF,T4_2H_INFERNOSTAFF,T4_2H_FROSTSTAFF,T4_2H_FROSTSTAFF,T4_2H_GLACIALSTAFF,T4_MAIN_HOLYSTAFF,T4_2H_HOLYSTAFF,T4_2H_DIVINESTAFF,T4_OFF_BOOK,T4_HEAD_LEATHER_SET2,T4_HEAD_LEATHER_SET3,T4_ARMOR_LEATHER_SET1,T4_ARMOR_LEATHER_SET2,T4_ARMOR_LEATHER_SET3,T4_SHOES_LEATHER_SET1,T4_SHOES_LEATHER_SET2,T4_SHOES_LEATHER_SET3,T4_2H_BOW,T4_2H_WARBOW,T4_2H_LONGBOW,T4_MAIN_SPEAR,T4_2H_SPEAR,T4_2H_GLAIVE,T4_MAIN_NATURESTAFF,T4_2H_NATURESTAFF,T4_2H_WILDSTAFF,T4_MAIN_DAGGER,T4_2H_DAGGERPAIR,T4_2H_CLAWPAIR,T4_2H_QUARTERSTAFF,T4_2H_IRONCLADEDSTAFF,T4_2H_DOUBLEBLADEDSTAFF,T4_OFF_TORCH,T4_HEAD_PLATE_SET1,T4_HEAD_PLATE_SET2,T4_HEAD_PLATE_SET3,T4_ARMOR_PLATE_SET1,T4_ARMOR_PLATE_SET2,T4_ARMOR_PLATE_SET3,T4_SHOES_PLATE_SET1,T4_SHOES_PLATE_SET2,T4_SHOES_PLATE_SET3,T4_MAIN_SWORD,T4_2H_CLAYMORE,T4_2H_DUALSWORD,T4_MAIN_AXE,T4_2H_AXE,T4_2H_HALBERD,T4_2H_MACE,T4_MAIN_MACE,T4_2H_FLAIL,T4_2H_TOOL_SIEGEHAMMER,T4_2H_POLEHAMMER,T4_2H_HAMMER,T4_2H_CROSSBOW,T4_2H_CROSSBOWLARGE,T4_MAIN_1HCROSSBOW,T4_OFF_SHIELD,T4_BAG,T4_CAPE.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=1`
+      `https://east.albion-online-data.com/api/v2/stats/prices/T4_HEAD_CLOTH_SET1,T4_HEAD_CLOTH_SET2,T4_HEAD_CLOTH_SET3,T4_ARMOR_CLOTH_SET1,T4_ARMOR_CLOTH_SET2,T4_ARMOR_CLOTH_SET3,T4_SHOES_CLOTH_SET1,T4_SHOES_CLOTH_SET2,T4_SHOES_CLOTH_SET3,T4_MAIN_ARCANESTAFF,T4_2H_ARCANESTAFF,T4_2H_ENIGMATICSTAFF,T4_MAIN_CURSEDSTAFF,T4_2H_CURSEDSTAFF,T4_2H_DEMONICSTAFF,T4_MAIN_FIRESTAFF,T4_2H_FIRESTAFF,T4_2H_INFERNOSTAFF,T4_2H_FROSTSTAFF,T4_2H_FROSTSTAFF,T4_2H_GLACIALSTAFF,T4_MAIN_HOLYSTAFF,T4_2H_HOLYSTAFF,T4_2H_DIVINESTAFF,T4_OFF_BOOK,T4_HEAD_LEATHER_SET2,T4_HEAD_LEATHER_SET3,T4_ARMOR_LEATHER_SET1,T4_ARMOR_LEATHER_SET2,T4_ARMOR_LEATHER_SET3,T4_SHOES_LEATHER_SET1,T4_SHOES_LEATHER_SET2,T4_SHOES_LEATHER_SET3,T4_2H_BOW,T4_2H_WARBOW,T4_2H_LONGBOW,T4_MAIN_SPEAR,T4_2H_SPEAR,T4_2H_GLAIVE,T4_MAIN_NATURESTAFF,T4_2H_NATURESTAFF,T4_2H_WILDSTAFF,T4_MAIN_DAGGER,T4_2H_DAGGERPAIR,T4_2H_CLAWPAIR,T4_2H_QUARTERSTAFF,T4_2H_IRONCLADEDSTAFF,T4_2H_DOUBLEBLADEDSTAFF,T4_OFF_TORCH,T4_HEAD_PLATE_SET1,T4_HEAD_PLATE_SET2,T4_HEAD_PLATE_SET3,T4_ARMOR_PLATE_SET1,T4_ARMOR_PLATE_SET2,T4_ARMOR_PLATE_SET3,T4_SHOES_PLATE_SET1,T4_SHOES_PLATE_SET2,T4_SHOES_PLATE_SET3,T4_MAIN_SWORD,T4_2H_CLAYMORE,T4_2H_DUALSWORD,T4_MAIN_AXE,T4_2H_AXE,T4_2H_HALBERD,T4_2H_MACE,T4_MAIN_MACE,T4_2H_FLAIL,T4_2H_TOOL_SIEGEHAMMER,T4_2H_POLEHAMMER,T4_2H_HAMMER,T4_2H_CROSSBOW,T4_2H_CROSSBOWLARGE,T4_MAIN_1HCROSSBOW,T4_OFF_SHIELD,T4_BAG,T4_CAPE.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=${qualities}`
     )
       .then((res) => res.json())
       .then((json) => analysisJSON(json, setItem));
     fetch(
-      `https://east.albion-online-data.com/api/v2/stats/prices/T4_SHOES_LEATHER_MORGANA,T4_ARMOR_LEATHER_MORGANA,T4_HEAD_LEATHER_MORGANA.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=1`
+      `https://east.albion-online-data.com/api/v2/stats/prices/T4_SHOES_PLATE_UNDEAD,T4_ARMOR_PLATE_UNDEAD,T4_HEAD_PLATE_UNDEAD,T4_SHOES_CLOTH_KEEPER,T4_ARMOR_CLOTH_KEEPER,T4_HEAD_CLOTH_KEEPER,T4_SHOES_LEATHER_MORGANA,T4_ARMOR_LEATHER_MORGANA,T4_HEAD_LEATHER_MORGANA.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=${qualities}`
     )
       .then((res) => res.json())
       .then((json) => analysisJSON(json, setItemArtef));
@@ -133,7 +141,7 @@ function App() {
 
   useEffect(() => {
     addFitch();
-  }, []);
+  }, [qualities, qualitiesName]);
 
   function analysisJSON(data, arrays) {
     let array = [];
@@ -259,7 +267,7 @@ function App() {
     } else profitColorProc = "#e98282";
     return (
       <h>
-        <font style={{ color: profitColor }}>{profit}</font> |{" "}
+        <font style={{ color: profitColor }}>{profit}</font> |
         <font style={{ color: profitColorProc }}>{profitProc}%</font>
       </h>
     );
@@ -294,22 +302,48 @@ function App() {
                   <NavLink to="/eightOneE">T 8.1</NavLink>
                 </>
               </div>
-              <h1>Т 4.0 - обычное</h1>
-              <NavLink to="/tfourE" activeStyle>
+              <h1>Т 4.0 - {qualitiesName}</h1>
+              <NavLink
+                onClick={() => {
+                  setQualities(1);
+                  setQualitiesName("обычное");
+                }}
+              >
                 1
               </NavLink>
-              <NavLink to="/tfour2E" activeStyle>
+              <NavLink
+                onClick={() => {
+                  setQualities(2);
+                  setQualitiesName("хорошее");
+                }}
+              >
                 2
               </NavLink>
-              <NavLink to="/tfour3E" activeStyle>
+              <NavLink
+                onClick={() => {
+                  setQualities(3);
+                  setQualitiesName("выдающиеся");
+                }}
+              >
                 3
               </NavLink>
-              <NavLink to="/tfour4E" activeStyle>
+              <NavLink
+                onClick={() => {
+                  setQualities(4);
+                  setQualitiesName("отличное");
+                }}
+              >
                 4
               </NavLink>
-              <NavLink to="/tfour5E" activeStyle>
+              <NavLink
+                onClick={() => {
+                  setQualities(5);
+                  setQualitiesName("шедевр");
+                }}
+              >
                 5
               </NavLink>
+
               <h1>Сервер: EAST</h1>
             </NavMenu>
           </Nav>
