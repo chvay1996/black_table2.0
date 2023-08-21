@@ -227,33 +227,27 @@ function App() {
                 <NavLink to="/eight">T 8.0</NavLink>
                 <NavLink to="/eightOne">T 8.1</NavLink>
               </>
+              <h1>Т 3 - шедевр</h1>
+              <NavLink to="/three" activeStyle>
+                1
+              </NavLink>
+              <NavLink to="/three2" activeStyle>
+                2
+              </NavLink>
+              <NavLink to="/three3" activeStyle>
+                3
+              </NavLink>
+              <NavLink to="/three4" activeStyle>
+                4
+              </NavLink>
+              <NavLink to="/three5" activeStyle>
+                5
+              </NavLink>
+              <h1>Сервер: WEST</h1>
             </div>
           </NavMenu>
         </Nav>
       </>
-      <div>
-        <Nav>
-          <NavMenu>
-            <h1>Т 3 - шедевр</h1>
-            <NavLink to="/three" activeStyle>
-              1
-            </NavLink>
-            <NavLink to="/three2" activeStyle>
-              2
-            </NavLink>
-            <NavLink to="/three3" activeStyle>
-              3
-            </NavLink>
-            <NavLink to="/three4" activeStyle>
-              4
-            </NavLink>
-            <NavLink to="/three5" activeStyle>
-              5
-            </NavLink>
-            <h1>Сервер: WEST</h1>
-          </NavMenu>
-        </Nav>
-      </div>
       <table
         style={{
           margin: "auto",

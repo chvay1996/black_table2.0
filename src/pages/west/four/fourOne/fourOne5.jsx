@@ -265,7 +265,7 @@ function App() {
 
   return (
     <>
-      <>
+      <div style={{ position: "sticky", top: "5px" }}>
         <Nav>
           <NavMenu>
             <div style={{ display: "contents" }}>
@@ -291,12 +291,6 @@ function App() {
                 <NavLink to="/eightOne">T 8.1</NavLink>
               </>
             </div>
-          </NavMenu>
-        </Nav>
-      </>
-      <div>
-        <Nav>
-          <NavMenu>
             <h1>Т 4.1 - шедевр</h1>
             <NavLink to="/fourOne" activeStyle>
               1

@@ -1,10 +1,11 @@
 body {
-  background-image: url("/public/background.jpeg");
   background-position: left bottom;
+  background-image: url("/public/background.jpeg");
+  /* background-image: url("/public/Albion-Online-v-Steam.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Apple Chancery, cursive;
   font-size: 15px;
   text-align: center;
   margin: 0;
@@ -13,16 +14,16 @@ body {
 
 table {
   border: 3px solid #228b22;
-  color: #b8cfb4;
+  color: #ffffff;
   border-radius: 10px;
-  background: #000000;
 }
 
 tbody {
   color: #ffffff;
-  background: #474646;
 }
-
+.th {
+  border-bottom: 2px solid #000;
+}
 tr,
 th {
   text-align: center;

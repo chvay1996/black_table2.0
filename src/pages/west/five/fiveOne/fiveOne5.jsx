@@ -267,7 +267,7 @@ function App() {
 
   return (
     <>
-      <>
+      <div style={{ position: "sticky", top: "5px" }}>
         <Nav>
           <NavMenu>
             <div style={{ display: "contents" }}>
@@ -293,30 +293,26 @@ function App() {
                 <NavLink to="/eightOne">T 8.1</NavLink>
               </>
             </div>
+            <h1>Т 5.1 - шедевр</h1>
+            <NavLink to="/fiveOne" activeStyle>
+              1
+            </NavLink>
+            <NavLink to="/fiveOne2" activeStyle>
+              2
+            </NavLink>
+            <NavLink to="/fiveOne3" activeStyle>
+              3
+            </NavLink>
+            <NavLink to="/fiveOne4" activeStyle>
+              4
+            </NavLink>
+            <NavLink to="/fiveOne5" activeStyle>
+              5
+            </NavLink>
+            <h1>Сервер: WEST</h1>
           </NavMenu>
         </Nav>
-      </>
-      <Nav>
-        <NavMenu>
-          <h1>Т 5.1 - шедевр</h1>
-          <NavLink to="/fiveOne" activeStyle>
-            1
-          </NavLink>
-          <NavLink to="/fiveOne2" activeStyle>
-            2
-          </NavLink>
-          <NavLink to="/fiveOne3" activeStyle>
-            3
-          </NavLink>
-          <NavLink to="/fiveOne4" activeStyle>
-            4
-          </NavLink>
-          <NavLink to="/fiveOne5" activeStyle>
-            5
-          </NavLink>
-          <h1>Сервер: WEST</h1>
-        </NavMenu>
-      </Nav>
+      </div>
       <table
         style={{
           margin: "auto",

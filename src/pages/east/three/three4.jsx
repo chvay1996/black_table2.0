@@ -229,12 +229,6 @@ function App() {
                   <NavLink to="/eightOneE">T 8.1</NavLink>
                 </>
               </div>
-            </NavMenu>
-          </Nav>
-        </>
-        <div>
-          <Nav>
-            <NavMenu>
               <h1>Т 3 - отличное</h1>
               <NavLink to="/threeE" activeStyle>
                 1
@@ -254,7 +248,7 @@ function App() {
               <h1>Сервер: EAST</h1>
             </NavMenu>
           </Nav>
-        </div>
+        </>
       </div>
       <table
         style={{
@@ -417,7 +411,7 @@ function App() {
             let url = `https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/${items.item_id}`;
             return (
               <tr key={key}>
-                <img style={{ width: "40px" }} src={url} />
+                <img style={{ width: "25px" }} src={url} />
                 <th>{Enum[items.item_id]}</th>
                 <th>{items.BlackMarket.sell}</th>
                 <th>{Math.round((items.BlackMarket.sell / 100) * 89.5)}</th>

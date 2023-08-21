@@ -466,7 +466,7 @@ function App() {
             let url = `https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/${items.item_id}`;
             return (
               <tr key={key}>
-                <img style={{ width: "40px" }} src={url} />
+                <img style={{ width: "25px" }} src={url} />
                 <th>{Enum[items.item_id]}</th>
                 <th>{items.BlackMarket.sell}</th>
                 <th>{Math.round((items.BlackMarket.sell / 100) * 89.5)}</th>

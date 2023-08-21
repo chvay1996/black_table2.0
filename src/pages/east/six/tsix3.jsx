@@ -259,7 +259,7 @@ function App() {
 
   return (
     <>
-      <div style={{ position: "sticky", top: "80px" }}>
+      <div style={{ position: "sticky", top: "5px" }}>
         <>
           <Nav>
             <NavMenu>
@@ -286,12 +286,6 @@ function App() {
                   <NavLink to="/eightOneE">T 8.1</NavLink>
                 </>
               </div>
-            </NavMenu>
-          </Nav>
-        </>
-        <div>
-          <Nav>
-            <NavMenu>
               <h1>Т 6.0 - выдабщиеся</h1>
               <NavLink to="/tsixE" activeStyle>
                 1
@@ -311,7 +305,7 @@ function App() {
               <h1>Сервер: EAST</h1>
             </NavMenu>
           </Nav>
-        </div>
+        </>
       </div>
       <table
         style={{
