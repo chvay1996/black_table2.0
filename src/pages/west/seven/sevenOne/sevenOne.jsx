@@ -286,26 +286,26 @@ function App() {
           <Nav>
             <NavMenu>
               <div style={{ display: "contents" }}>
-                <NavLink to="/threeE">T 3</NavLink>
+                <NavLink to="/three">T 3</NavLink>
                 <>
-                  <NavLink to="/tfourE">T 4.0</NavLink>
-                  <NavLink to="/fourOneE">T 4.1</NavLink>
+                  <NavLink to="/tfour">T 4.0</NavLink>
+                  <NavLink to="/fourOne">T 4.1</NavLink>
                 </>
                 <>
-                  <NavLink to="/tfiveE">Т 5.0</NavLink>
-                  <NavLink to="/fiveOneE">Т 5.1</NavLink>
+                  <NavLink to="/tfive">Т 5.0</NavLink>
+                  <NavLink to="/fiveOne">Т 5.1</NavLink>
                 </>
                 <>
-                  <NavLink to="/tsixE">T 6.0</NavLink>
-                  <NavLink to="/sixOneE">T 6.1</NavLink>
+                  <NavLink to="/tsix">T 6.0</NavLink>
+                  <NavLink to="/sixOne">T 6.1</NavLink>
                 </>
                 <>
-                  <NavLink to="/sevenE">T 7.0</NavLink>
-                  <NavLink to="/sevenOneE">T 7.1</NavLink>
+                  <NavLink to="/seven">T 7.0</NavLink>
+                  <NavLink to="/sevenOne">T 7.1</NavLink>
                 </>
                 <>
-                  <NavLink to="/eightE">T 8.0</NavLink>
-                  <NavLink to="/eightOneE">T 8.1</NavLink>
+                  <NavLink to="/eight">T 8.0</NavLink>
+                  <NavLink to="/eightOne">T 8.1</NavLink>
                 </>
               </div>
               <h1>Т 7.1 - {qualitiesName}</h1>
