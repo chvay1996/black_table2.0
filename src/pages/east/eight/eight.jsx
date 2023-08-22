@@ -302,7 +302,7 @@ function App() {
                   <NavLink to="/eightOneE">T 8.1</NavLink>
                 </>
               </div>
-              <h1>Т 8.1 - {qualitiesName}</h1>
+              <h1>Т 8.0 - {qualitiesName}</h1>
               <NavLink
                 onClick={() => {
                   setQualities(1);
