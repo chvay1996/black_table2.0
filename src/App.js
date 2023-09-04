@@ -176,24 +176,6 @@ function App() {
       </>
     );
   }
-
-  return (
-    <>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/west" element={<WEST />} />
-          <Route path="/east" element={<EAST />} />
-          <Route path="/three" element={<THree />} />
-          <Route path="/threeE" element={<THreeE />} />
-        </Routes>
-      </Router>
-      <Fragment>
-        <Content />
-        <ScrollButton />
-      </Fragment>
-    </>
-  );
 }
 
 export default App;
