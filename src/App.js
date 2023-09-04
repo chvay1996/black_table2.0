@@ -54,8 +54,6 @@ import EAST from "./pages/east";
 
 function App() {
   const keyPlayer = [
-    "68vV5kFctu",
-    "4RoYs7IPK2",
     "9MwRObjEX7",
     "DWa0Nn2d1L",
     "Jl4bNjHB9O",
