@@ -53,14 +53,15 @@ import WEST from "./pages/west";
 import EAST from "./pages/east";
 
 function App() {
-  const keyPlayer = [
-    "9MwRObjEX7",
+  const finishKeyPlauer = [
     "DWa0Nn2d1L",
     "Jl4bNjHB9O",
     "96mQCqVGXJ",
     "dug7RCN7zZ",
     "3KKjdPDdEQ",
     "0koQ3NPjCG",
+  ];
+  const keyPlayer = [
     "DmALe64twm",
     "0IUmqmgXzL",
     "8qu8vrnBZ2",
@@ -103,11 +104,22 @@ function App() {
 
   const [cookies, setCookie] = useCookies(["userKey"]);
   const isValidUserKey = keyPlayer.includes(cookies.userKey);
+  const isValidUserfinishKeyPlauer = finishKeyPlauer.includes(cookies.userKey);
 
   useEffect(() => {
     if (!cookies.userKey) {
       const key = prompt("Введите ключ!").trim();
+
       if (keyPlayer.includes(key)) {
+        setCookie("userKey", key, { path: "/" });
+      } else if (finishKeyPlauer.includes(key)) {
+        alert(
+          `У Вас в ближайшее время заканчивается подписка, пожалуйста обратитесь к администрации для продления подписки! 
+
+В противном случае у Вас ограничится доступ к таблице
+
+Не допускайте ограничения доступа к таблице — свяжитесь с нами как можно скорее!`
+        );
         setCookie("userKey", key, { path: "/" });
       } else {
         alert("Введите ключ или обратитесь к администрации!");
@@ -115,7 +127,7 @@ function App() {
     }
   }, []);
 
-  if (isValidUserKey) {
+  if (isValidUserKey || isValidUserfinishKeyPlauer) {
     return (
       <>
         <Router>

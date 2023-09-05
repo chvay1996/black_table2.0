@@ -4,10 +4,47 @@
     <meta charset="utf-8" />
     <link rel="icon" href="logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Таблица Альбион Олнайн</title>
+    <title>Таблица рынков Альбион Онлайн</title>
   </head>
   <body>
-    <noscript>Таблица Альбион Олнайн</noscript>
+    <noscript>Таблица рынков Альбион Онлайн</noscript>
     <div id="root"></div>
+    <a
+      href="https://www.liveinternet.ru/click"
+      target="_blank"
+      style="font-size: 0;  border: #ccd54a79 solid 0px;
+      border-radius: 0px;"
+    >
+      <img
+        id="licntAE42"
+        width="88"
+        height="15"
+        style="border: 0"
+        title="Показано число посетителей за сегодня"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+        alt=""
+      />
+    </a>
+    <script>
+      (function (d, s) {
+        d.getElementById("licntAE42").src =
+          "https://counter.yadro.ru/hit?t26.6;r" +
+          escape(d.referrer) +
+          (typeof s == "undefined"
+            ? ""
+            : ";s" +
+              s.width +
+              "*" +
+              s.height +
+              "*" +
+              (s.colorDepth ? s.colorDepth : s.pixelDepth)) +
+          ";u" +
+          escape(d.URL) +
+          ";h" +
+          escape(d.title.substring(0, 150)) +
+          ";" +
+          Math.random();
+      })(document, screen);
+    </script>
   </body>
 </html>
