@@ -109,7 +109,7 @@ function App() {
       if (keyPlayer.includes(key)) {
         // Установите куки с сроком действия в 20 дней
         const expirationDate = new Date();
-        expirationDate.setDate(expirationDate.getDate() + 20);
+        expirationDate.setDate(expirationDate.getDate() + 25);
         setCookie("userKey", key, { path: "/", expires: expirationDate });
       } else if (finishKeyPlauer.includes(key)) {
         alert(
