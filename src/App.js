@@ -53,13 +53,14 @@ import WEST from "./pages/west";
 import EAST from "./pages/east";
 
 function App() {
-  const finishKeyPlauer = ["0IUmqmgXzL", "8qu8vrnBZ2"];
-  const keyPlayer = [
+  const finishKeyPlauer = [
     "JBY4synKz8",
     "vK6t9ubXYV",
     "PYdn9UANck",
     "YTZwrL7Y0s",
     "5a57T6Q0E5",
+  ];
+  const keyPlayer = [
     "f6JbJh32X6",
     "29SEVFMDeg",
     "FjY1inP03s",
