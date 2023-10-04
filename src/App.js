@@ -61,9 +61,6 @@ function App() {
     "hTbT1usBkT",
     "nqKTXhW8v8",
     "GWOff4d9DT",
-  ];
-  const keyPlayer = [
-    
     "lgWj66NhGS",
     "eJVOTP9oDB",
     "SoXRifaU0h",
