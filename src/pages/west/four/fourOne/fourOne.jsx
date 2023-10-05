@@ -304,7 +304,7 @@ function App() {
               <div style={{ display: "contents" }}>
                 <NavLink to="/three">T 3</NavLink>
                 <>
-                  <NavLink to="/tfouE">T 4.0</NavLink>
+                  <NavLink to="/tfou">T 4.0</NavLink>
                   <NavLink to="/fourOne">T 4.1</NavLink>
                 </>
                 <>
