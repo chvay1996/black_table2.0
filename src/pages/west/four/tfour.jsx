@@ -125,6 +125,12 @@ function App() {
   const [qualities, setQualities] = useState(1);
   const [qualitiesName, setQualitiesName] = useState("Обычное");
   const [itemArtef, setItemArtef] = useState([]);
+  const [itemBridgewatch, setItemBridgewatch] = useState(true);
+  const [itemMartlock, setItemMartlock] = useState(false);
+  const [itemThetford, setItemThetford] = useState(false);
+  const [itemFortSterling, setItemFortSterling] = useState(false);
+  const [itemLymhurst, setItemLymhurst] = useState(false);
+  const [itemCarleon, setItemCarleon] = useState(false);
 
   function addFitch() {
     fetch(
@@ -136,7 +142,17 @@ function App() {
       `https://WEST.albion-online-data.com/api/v2/stats/prices/T4_SHOES_PLATE_UNDEAD,T4_ARMOR_PLATE_UNDEAD,T4_HEAD_PLATE_UNDEAD,T4_SHOES_CLOTH_KEEPER,T4_ARMOR_CLOTH_KEEPER,T4_HEAD_CLOTH_KEEPER,T4_SHOES_LEATHER_MORGANA,T4_ARMOR_LEATHER_MORGANA,T4_HEAD_LEATHER_MORGANA.json?locations=Caerleon,BlackMarket,Martlock,Thetford,Lymhurst,FortSterling,Bridgewatch&qualities=${qualities}`
     )
       .then((res) => res.json())
-      .then((json) => analysisJSON(json, setItemArtef));
+      .then((json) => {
+        const filteredData = json.filter(
+          (data) => itemBridgewatch || data.city !== "Bridgewatch",
+          (data) => itemMartlock || data.city !== "Martlock",
+          (data) => itemThetford || data.city !== "Thetford",
+          (data) => itemFortSterling || data.city !== "FortSterling",
+          (data) => itemLymhurst || data.city !== "Lymhurst",
+          (data) => itemCarleon || data.city !== "Carleon"
+        );
+        analysisJSON(filteredData);
+      });
   }
 
   useEffect(() => {
@@ -348,6 +364,93 @@ function App() {
             </NavMenu>
           </Nav>
         </>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div>
+            <label for="Bridgewatch">Bridgewatch</label>
+            <div>
+              <input
+                type="checkbox"
+                id="Bridgewatch"
+                name="Bridgewatch"
+                value="Bridgewatch"
+                checked={itemBridgewatch}
+                onClick={() => {
+                  setItemBridgewatch(!itemBridgewatch);
+                }}
+              />
+            </div>
+          </div>
+          <div>
+            <label for="Martlock">Martlock</label>
+            <div>
+              <input
+                type="checkbox"
+                id="Martlock"
+                name="Martlock"
+                value="Martlock"
+                onClick={() => {
+                  setItemMartlock(!itemMartlock);
+                }}
+              />
+            </div>
+          </div>
+          <div>
+            <label for="Thetford">Thetford</label>
+            <div>
+              <input
+                type="checkbox"
+                id="Thetford"
+                name="Thetford"
+                value="Thetford"
+                onClick={() => {
+                  setItemThetford(!itemThetford);
+                }}
+              />
+            </div>
+          </div>
+          <div>
+            <label for="Fort Sterling">Fort Sterling</label>
+            <div>
+              <input
+                type="checkbox"
+                id="Fort Sterling"
+                name="Fort Sterling"
+                value="Fort Sterling"
+                onClick={() => {
+                  setItemFortSterling(!itemFortSterling);
+                }}
+              />
+            </div>
+          </div>
+          <div>
+            <label for="Lymhurst">Lymhurst</label>
+            <div>
+              <input
+                type="checkbox"
+                id="Lymhurst"
+                name="Lymhurst"
+                value="Lymhurst"
+                onClick={() => {
+                  setItemLymhurst(!itemLymhurst);
+                }}
+              />
+            </div>
+          </div>
+          <div>
+            <label for="Carleon">Carleon</label>
+            <div>
+              <input
+                type="checkbox"
+                id="Carleon"
+                name="Carleon"
+                value="Carleon"
+                onClick={() => {
+                  setItemCarleon(!itemCarleon);
+                }}
+              />
+            </div>
+          </div>
+        </div>
       </div>
       <table
         style={{
@@ -363,146 +466,179 @@ function App() {
             <th style={{ width: "65px" }}>BlackMarket</th>
             <th style={{ width: "60px" }}>-%</th>
             <th style={{ width: "65px" }}>lastUpdate</th>
-
-            <th
-              style={{
-                width: "65px",
-                backgroundColor: "rgb(56, 211, 215, 10%)",
-              }}
-            >
-              Bridgewatch
-            </th>
-            <th
-              style={{
-                width: "60px",
-                backgroundColor: "rgb(56, 211, 215, 10%)",
-              }}
-            >
-              profit
-            </th>
-            <th
-              style={{
-                width: "65px",
-                backgroundColor: "rgb(56, 211, 215, 10%)",
-              }}
-            >
-              lastUpdate
-            </th>
-
-            <th
-              style={{ width: "65px", backgroundColor: "rgb(255, 13, 0, 10%)" }}
-            >
-              Martlock
-            </th>
-            <th
-              style={{ width: "60px", backgroundColor: "rgb(255, 13, 0, 10%)" }}
-            >
-              profit
-            </th>
-            <th
-              style={{ width: "65px", backgroundColor: "rgb(255, 13, 0, 10%)" }}
-            >
-              lastUpdate
-            </th>
-
-            <th
-              style={{
-                width: "65px",
-                backgroundColor: "rgb(255, 255, 128, 10%)",
-              }}
-            >
-              Thetford
-            </th>
-            <th
-              style={{
-                width: "60px",
-                backgroundColor: "rgb(255, 255, 128, 10%)",
-              }}
-            >
-              profit
-            </th>
-            <th
-              style={{
-                width: "65px",
-                backgroundColor: "rgb(255, 255, 128, 10%)",
-              }}
-            >
-              lastUpdate
-            </th>
-
-            <th
-              style={{
-                width: "65px",
-                backgroundColor: "rgb(249, 230 ,217, 10%)",
-              }}
-            >
-              Fort Sterling
-            </th>
-            <th
-              style={{
-                width: "60px",
-                backgroundColor: "rgb(249, 230 ,217, 10%)",
-              }}
-            >
-              profit
-            </th>
-            <th
-              style={{
-                width: "60px",
-                backgroundColor: "rgb(249, 230 ,217, 10%)",
-              }}
-            >
-              lastUpdate
-            </th>
-
-            <th
-              style={{
-                width: "65px",
-                backgroundColor: "rgb(60, 251, 43, 10%)",
-              }}
-            >
-              Lymhurst
-            </th>
-            <th
-              style={{
-                width: "60px",
-                backgroundColor: "rgb(60, 251, 43, 10%)",
-              }}
-            >
-              profit
-            </th>
-            <th
-              style={{
-                width: "65px",
-                backgroundColor: "rgb(60, 251, 43, 10%)",
-              }}
-            >
-              lastUpdate
-            </th>
-            <th
-              style={{
-                width: "65px",
-                backgroundColor: "rgb(134, 67, 189, 10%)",
-              }}
-            >
-              Carleon
-            </th>
-            <th
-              style={{
-                width: "60px",
-                backgroundColor: "rgb(134, 67, 189, 10%)",
-              }}
-            >
-              profit
-            </th>
-            <th
-              style={{
-                width: "65px",
-                backgroundColor: "rgb(134, 67, 189, 10%)",
-              }}
-            >
-              lastUpdate
-            </th>
+            {itemBridgewatch && (
+              <>
+                <th
+                  style={{
+                    width: "65px",
+                    backgroundColor: "rgba(56, 211, 215, 0.1)",
+                  }}
+                >
+                  Bridgewatch
+                </th>
+                <th
+                  style={{
+                    width: "60px",
+                    backgroundColor: "rgba(56, 211, 215, 0.1)",
+                  }}
+                >
+                  profit
+                </th>
+                <th
+                  style={{
+                    width: "65px",
+                    backgroundColor: "rgba(56, 211, 215, 0.1)",
+                  }}
+                >
+                  lastUpdate
+                </th>
+              </>
+            )}
+            {itemMartlock && (
+              <>
+                {" "}
+                <th
+                  style={{
+                    width: "65px",
+                    backgroundColor: "rgb(255, 13, 0, 10%)",
+                  }}
+                >
+                  Martlock
+                </th>
+                <th
+                  style={{
+                    width: "60px",
+                    backgroundColor: "rgb(255, 13, 0, 10%)",
+                  }}
+                >
+                  profit
+                </th>
+                <th
+                  style={{
+                    width: "65px",
+                    backgroundColor: "rgb(255, 13, 0, 10%)",
+                  }}
+                >
+                  lastUpdate
+                </th>
+              </>
+            )}
+            {itemThetford && (
+              <>
+                {" "}
+                <th
+                  style={{
+                    width: "65px",
+                    backgroundColor: "rgb(255, 255, 128, 10%)",
+                  }}
+                >
+                  Thetford
+                </th>
+                <th
+                  style={{
+                    width: "60px",
+                    backgroundColor: "rgb(255, 255, 128, 10%)",
+                  }}
+                >
+                  profit
+                </th>
+                <th
+                  style={{
+                    width: "65px",
+                    backgroundColor: "rgb(255, 255, 128, 10%)",
+                  }}
+                >
+                  lastUpdate
+                </th>
+              </>
+            )}
+            {itemFortSterling && (
+              <>
+                {" "}
+                <th
+                  style={{
+                    width: "65px",
+                    backgroundColor: "rgb(249, 230 ,217, 10%)",
+                  }}
+                >
+                  Fort Sterling
+                </th>
+                <th
+                  style={{
+                    width: "60px",
+                    backgroundColor: "rgb(249, 230 ,217, 10%)",
+                  }}
+                >
+                  profit
+                </th>
+                <th
+                  style={{
+                    width: "60px",
+                    backgroundColor: "rgb(249, 230 ,217, 10%)",
+                  }}
+                >
+                  lastUpdate
+                </th>
+              </>
+            )}
+            {itemLymhurst && (
+              <>
+                {" "}
+                <th
+                  style={{
+                    width: "65px",
+                    backgroundColor: "rgb(60, 251, 43, 10%)",
+                  }}
+                >
+                  Lymhurst
+                </th>
+                <th
+                  style={{
+                    width: "60px",
+                    backgroundColor: "rgb(60, 251, 43, 10%)",
+                  }}
+                >
+                  profit
+                </th>
+                <th
+                  style={{
+                    width: "65px",
+                    backgroundColor: "rgb(60, 251, 43, 10%)",
+                  }}
+                >
+                  lastUpdate
+                </th>
+              </>
+            )}
+            {itemCarleon && (
+              <>
+                {" "}
+                <th
+                  style={{
+                    width: "65px",
+                    backgroundColor: "rgb(134, 67, 189, 10%)",
+                  }}
+                >
+                  Carleon
+                </th>
+                <th
+                  style={{
+                    width: "60px",
+                    backgroundColor: "rgb(134, 67, 189, 10%)",
+                  }}
+                >
+                  profit
+                </th>
+                <th
+                  style={{
+                    width: "65px",
+                    backgroundColor: "rgb(134, 67, 189, 10%)",
+                  }}
+                >
+                  lastUpdate
+                </th>
+              </>
+            )}{" "}
           </tr>
         </thead>
         <tbody>
@@ -515,150 +651,104 @@ function App() {
                 <th>{items.BlackMarket.sell}</th>
                 <th>{Math.round((items.BlackMarket.sell / 100) * 89.5)}</th>
                 <th>{checkTimeBD(items.BlackMarket.sellDate)}</th>
-                <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
-                  {items.Bridgewatch.sell}
-                </th>
-                <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
-                  {items.BlackMarket.sell && items.Bridgewatch.sell
-                    ? profit(items.BlackMarket.sell, items.Bridgewatch.sell)
-                    : ""}
-                </th>
-                <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
-                  {checkTimeBD(items.Martlock.sellDate)}
-                </th>
-                <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
-                  {items.Martlock.sell}
-                </th>
-                <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
-                  {items.BlackMarket.sell && items.Martlock.sell
-                    ? profit(items.BlackMarket.sell, items.Martlock.sell)
-                    : ""}
-                </th>
-                <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
-                  {checkTimeBD(items.Thetford.sellDate)}
-                </th>
-                <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
-                  {items.Thetford.sell}
-                </th>
-                <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
-                  {items.BlackMarket.sell && items.Thetford.sell
-                    ? profit(items.BlackMarket.sell, items.Thetford.sell)
-                    : ""}
-                </th>
-                <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
-                  {checkTimeBD(items.FortSterling.sellDate)}
-                </th>
-                <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
-                  {items.FortSterling.sell}
-                </th>
-                <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
-                  {items.BlackMarket.sell && items.FortSterling.sell
-                    ? profit(items.BlackMarket.sell, items.FortSterling.sell)
-                    : ""}
-                </th>
-                <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
-                  {checkTimeBD(items.FortSterling.sellDate)}
-                </th>
-                <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
-                  {items.Lymhurst.sell}
-                </th>
-                <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
-                  {items.BlackMarket.sell && items.Lymhurst.sell
-                    ? profit(items.BlackMarket.sell, items.Lymhurst.sell)
-                    : ""}
-                </th>
-                <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
-                  {checkTimeBD(items.Lymhurst.sellDate)}
-                </th>
-                <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
-                  {items.Caerleon.sell}
-                </th>
-                <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
-                  {items.BlackMarket.sell && items.Caerleon.sell
-                    ? profit(items.BlackMarket.sell, items.Caerleon.sell)
-                    : ""}
-                </th>
-                <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
-                  {checkTimeBD(items.Caerleon.sellDate)}
-                </th>
-              </tr>
-            );
-          })}
-          {itemArtef.map((items, key) => {
-            let url = `https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/${items.item_id}`;
-            return (
-              <tr key={key}>
-                <img style={{ width: "25px" }} src={url} />
-                <th>{artef[items.item_id]}</th>
-                <th>{items.BlackMarket.sell}</th>
-                <th>{Math.round((items.BlackMarket.sell / 100) * 89.5)}</th>
-                <th>{checkTimeBD(items.BlackMarket.sellDate)}</th>
-                <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
-                  {items.Bridgewatch.sell}
-                </th>
-                <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
-                  {items.BlackMarket.sell && items.Bridgewatch.sell
-                    ? profit(items.BlackMarket.sell, items.Bridgewatch.sell)
-                    : ""}
-                </th>
-                <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
-                  {checkTimeBD(items.Martlock.sellDate)}
-                </th>
-                <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
-                  {items.Martlock.sell}
-                </th>
-                <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
-                  {items.BlackMarket.sell && items.Martlock.sell
-                    ? profit(items.BlackMarket.sell, items.Martlock.sell)
-                    : ""}
-                </th>
-                <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
-                  {checkTimeBD(items.Thetford.sellDate)}
-                </th>
-                <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
-                  {items.Thetford.sell}
-                </th>
-                <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
-                  {items.BlackMarket.sell && items.Thetford.sell
-                    ? profit(items.BlackMarket.sell, items.Thetford.sell)
-                    : ""}
-                </th>
-                <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
-                  {checkTimeBD(items.FortSterling.sellDate)}
-                </th>
-                <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
-                  {items.FortSterling.sell}
-                </th>
-                <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
-                  {items.BlackMarket.sell && items.FortSterling.sell
-                    ? profit(items.BlackMarket.sell, items.FortSterling.sell)
-                    : ""}
-                </th>
-                <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
-                  {checkTimeBD(items.FortSterling.sellDate)}
-                </th>
-                <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
-                  {items.Lymhurst.sell}
-                </th>
-                <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
-                  {items.BlackMarket.sell && items.Lymhurst.sell
-                    ? profit(items.BlackMarket.sell, items.Lymhurst.sell)
-                    : ""}
-                </th>
-                <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
-                  {checkTimeBD(items.Lymhurst.sellDate)}
-                </th>
-                <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
-                  {items.Caerleon.sell}
-                </th>
-                <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
-                  {items.BlackMarket.sell && items.Caerleon.sell
-                    ? profit(items.BlackMarket.sell, items.Caerleon.sell)
-                    : ""}
-                </th>
-                <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
-                  {checkTimeBD(items.Caerleon.sellDate)}
-                </th>
+                {itemBridgewatch && (
+                  <>
+                    <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
+                      {items.Bridgewatch.sell}
+                    </th>
+                    <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
+                      {items.BlackMarket.sell && items.Bridgewatch.sell
+                        ? profit(items.BlackMarket.sell, items.Bridgewatch.sell)
+                        : ""}
+                    </th>
+                    <th style={{ backgroundColor: "rgb(56, 211, 215, 10%)" }}>
+                      {checkTimeBD(items.Martlock.sellDate)}
+                    </th>{" "}
+                  </>
+                )}
+                {itemMartlock && (
+                  <>
+                    {" "}
+                    <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
+                      {items.Martlock.sell}
+                    </th>
+                    <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
+                      {items.BlackMarket.sell && items.Martlock.sell
+                        ? profit(items.BlackMarket.sell, items.Martlock.sell)
+                        : ""}
+                    </th>
+                    <th style={{ backgroundColor: "rgb(255, 13, 0, 10%)" }}>
+                      {checkTimeBD(items.Martlock.sellDate)}
+                    </th>
+                  </>
+                )}
+                {itemThetford && (
+                  <>
+                    {" "}
+                    <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
+                      {items.Thetford.sell}
+                    </th>
+                    <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
+                      {items.BlackMarket.sell && items.Thetford.sell
+                        ? profit(items.BlackMarket.sell, items.Thetford.sell)
+                        : ""}
+                    </th>
+                    <th style={{ backgroundColor: "rgb(255, 255, 128, 10%)" }}>
+                      {checkTimeBD(items.Thetford.sellDate)}
+                    </th>
+                  </>
+                )}{" "}
+                {itemFortSterling && (
+                  <>
+                    {" "}
+                    <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
+                      {items.FortSterling.sell}
+                    </th>
+                    <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
+                      {items.BlackMarket.sell && items.FortSterling.sell
+                        ? profit(
+                            items.BlackMarket.sell,
+                            items.FortSterling.sell
+                          )
+                        : ""}
+                    </th>
+                    <th style={{ backgroundColor: "rgb(249, 230 ,217, 10%)" }}>
+                      {checkTimeBD(items.FortSterling.sellDate)}
+                    </th>
+                  </>
+                )}
+                {itemLymhurst && (
+                  <>
+                    {" "}
+                    <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
+                      {items.Lymhurst.sell}
+                    </th>
+                    <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
+                      {items.BlackMarket.sell && items.Lymhurst.sell
+                        ? profit(items.BlackMarket.sell, items.Lymhurst.sell)
+                        : ""}
+                    </th>
+                    <th style={{ backgroundColor: "rgb(60, 251, 43, 10%)" }}>
+                      {checkTimeBD(items.Lymhurst.sellDate)}
+                    </th>
+                  </>
+                )}
+                {itemCarleon && (
+                  <>
+                    {" "}
+                    <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
+                      {items.Caerleon.sell}
+                    </th>
+                    <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
+                      {items.BlackMarket.sell && items.Caerleon.sell
+                        ? profit(items.BlackMarket.sell, items.Caerleon.sell)
+                        : ""}
+                    </th>
+                    <th style={{ backgroundColor: "rgb(134, 67, 189, 10%)" }}>
+                      {checkTimeBD(items.Caerleon.sellDate)}
+                    </th>
+                  </>
+                )}
               </tr>
             );
           })}
