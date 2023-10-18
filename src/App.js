@@ -62,10 +62,10 @@ function App() {
     "SoXRifaU0h",
     "LRy9ZAvzMe",
     "dTfwl8uDD3",
-  ];
-  const keyPlayer = [
     "5gi4Q6gX9F",
     "Xxhry9CE8G",
+];
+  const keyPlayer = [
     "CSaWhASGG8",
     "y8m4S8szXM",
     "Y10g2lDfdd",
