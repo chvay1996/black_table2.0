@@ -54,17 +54,13 @@ import EAST from "./pages/east";
 
 function App() {
   const finishKeyPlauer = [
-    "lgWj66NhGS",
-    "eJVOTP9oDB",
-    "SoXRifaU0h",
-    "LRy9ZAvzMe",
     "dTfwl8uDD3",
     "5gi4Q6gX9F",
     "Xxhry9CE8G",
-];
-  const keyPlayer = [
     "CSaWhASGG8",
     "y8m4S8szXM",
+];
+  const keyPlayer = [
     "Y10g2lDfdd",
     "0n0JOSC0mn",
     "Phk1rjT6gL",
