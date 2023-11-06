@@ -54,7 +54,6 @@ import EAST from "./pages/east";
 
 function App() {
   const finishKeyPlauer = [
-    "dTfwl8uDD3",
     "5gi4Q6gX9F",
     "Xxhry9CE8G",
     "CSaWhASGG8",
