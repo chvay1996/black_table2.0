@@ -73,8 +73,7 @@ function App() {
     "9IFkD9S179",
     "JdSJsq5g6l",
     "f5vgaG5t4O",
-    "keLw8GGAga",
-"ZIANpc4Gnr",// Резервный
+    "ZIANpc4Gnr",// Резервный
   ];
 
   const [cookies, setCookie] = useCookies(["userKey"]);
