@@ -54,13 +54,10 @@ import EAST from "./pages/east";
 
 function App() {
   const finishKeyPlauer = [
-    "ZIANpc4Gnr",
-    "Su3t5BQ4gM",
-    "HT9yq9VinX",
-         ];
-  const keyPlayer = [
     "V0KpNNxpZn",
     "z4qQ9vn43A",
+         ];
+  const keyPlayer = [
     "M0kwX3yOyv",
     "r5HdxOewO5",
     "ZEy3Um4Jlq",
@@ -77,6 +74,7 @@ function App() {
     "JdSJsq5g6l",
     "f5vgaG5t4O",
     "keLw8GGAga",
+"ZIANpc4Gnr",// Резервный
   ];
 
   const [cookies, setCookie] = useCookies(["userKey"]);
